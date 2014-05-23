@@ -58,7 +58,7 @@
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
-    (checksum (md5 "b7ef17eb95ac90e0260ff4f8c57fb9c9"))
+    (checksum (md5 "a81f35a7bb62f327697851d819ce1c74"))
     (library
       (name (srfi 95))
       (path "srfi/95.sld")
@@ -70,7 +70,17 @@
       (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
       (description "Sorting and Merging")
       (license public-domain)
-      (depends (srfi 95))))
+      (depends (srfi 95)))
+    (library
+      (name (srfi 95-gauche))
+      (path "srfi/95-gauche.sld")
+      (version "1.0")
+      (homepage "https://github.com/sethalves")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Seth Alves <seth@hungry.com>")
+      (description "srfi-95 shim for gauche")
+      (license public-domain)
+      (depends)))
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-19-time.tgz")
@@ -102,7 +112,7 @@
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-29-format.tgz")
-    (checksum (md5 "dd4ca97c05bb74a0f07556b34cd1ca1e"))
+    (checksum (md5 "84a6fbf809258304d920896a7e277f0b"))
     (library
       (name (srfi 29))
       (path "srfi/29.sld")

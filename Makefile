@@ -4,11 +4,11 @@
 
 all:
 
-package: index
+package:
 	snow2 -r . package packages/*.package
 
-upload:
-	snow2 -r . s3-upload packages/*.package
+upload: package
+	snow2 upload
 
 clean:
 	rm -f *~ */*~ */*/*~ */*/*/*~

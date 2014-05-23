@@ -28,7 +28,6 @@
     ;; http://wiki.call-cc.org/eggref/4/fmt
 
 
-
     (cond-expand
      ((or gauche sagittarius chicken))
      ((or chibi foment)
