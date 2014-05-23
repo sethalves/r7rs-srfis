@@ -1,4 +1,4 @@
-TEST_DEPS="(seth srfi-37-argument-processor)"
+TEST_DEPS="(srfi 37)"
 include ../../makefiles/test.make
 
 clean-extra:

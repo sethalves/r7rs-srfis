@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-1-lists)"
+TEST_DEPS="(srfi 1)"
 include ../../makefiles/test.make
 
 clean-extra:

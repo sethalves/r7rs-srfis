@@ -54,7 +54,7 @@
       (authors)
       (description "srfi-13-strings")
       (license BSD-style)
-      (depends)))
+      (depends (srfi 14))))
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
@@ -70,7 +70,7 @@
       (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
       (description "Sorting and Merging")
       (license public-domain)
-      (depends)))
+      (depends (srfi 95))))
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-19-time.tgz")
@@ -126,7 +126,7 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "srfi-14-character-sets")
       (license BSD-style)
-      (depends)))
+      (depends (srfi 1) (srfi 60))))
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-37-argument-processor.tgz")
@@ -140,7 +140,7 @@
       (authors "Anthony Carrico")
       (description "args-fold: a program argument processor")
       (license bsd)
-      (depends)))
+      (depends (srfi 1))))
   (package
     (name ())
     (url "http://snow-repository.s3-website-us-east-1.amazonaws.com/srfi-14-character-sets.tgz")

@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-13-strings)"
+TEST_DEPS="(srfi 13)"
 include ../../makefiles/test.make
 
 clean-extra:

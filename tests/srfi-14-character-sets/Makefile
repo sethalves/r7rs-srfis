@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-14-character-sets)"
+TEST_DEPS="(srfi 14)"
 include ../../makefiles/test.make
 
 clean-extra:

@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-60-integers-as-bits)"
+TEST_DEPS="(srfi 60)"
 include ../../makefiles/test.make
 
 clean-extra:

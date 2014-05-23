@@ -1,4 +1,4 @@
-TEST_DEPS="(seth srfi-69-hash-tables)"
+TEST_DEPS="(srfi 69)"
 include ../../makefiles/test.make
 
 clean-extra:

@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-29-format)" "(seth string-read-write)"
+TEST_DEPS="(srfi 29)"
 include ../../makefiles/test.make
 
 clean-extra:

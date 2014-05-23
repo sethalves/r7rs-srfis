@@ -1,4 +1,4 @@
-TEST_DEPS="(snow srfi-19-time)"
+TEST_DEPS="(srfi 19)"
 include ../../makefiles/test.make
 
 clean-extra:

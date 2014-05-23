@@ -1,4 +1,4 @@
-TEST_DEPS="(seth srfi-27-random)"
+TEST_DEPS="(srfi 27)"
 include ../../makefiles/test.make
 
 clean-extra:
