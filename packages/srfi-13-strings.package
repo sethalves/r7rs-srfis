@@ -1,0 +1,12 @@
+(package
+  (name ())
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-13-strings.tgz")
+  (library
+    (path "srfi/13.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors)
+    (description "srfi-13-strings")
+    (license BSD-style)
+    ))

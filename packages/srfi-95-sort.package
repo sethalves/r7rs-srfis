@@ -1,0 +1,14 @@
+(package
+  (name ())
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
+  (library
+    (path "srfi/95.sld")
+    (version "1.0")
+    (homepage
+      "http://srfi.schemers.org/srfi-95/srfi-95.html"
+      "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
+    (description "Sorting and Merging")
+    (license public-domain)
+    ))

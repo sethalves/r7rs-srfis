@@ -1,0 +1,12 @@
+(package
+  (name ())
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-27-random.tgz")
+  (library
+    (path "srfi/27.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Sebastian.Egner@philips.com")
+    (description "Sources of Random Bits")
+    (license bsd)
+    ))

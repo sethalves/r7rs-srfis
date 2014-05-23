@@ -1,0 +1,12 @@
+(package
+  (name ())
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-37-argument-processor.tgz")
+  (library
+    (path "srfi/37.sld")
+    (version "1.0")
+    (homepage "http://srfi.schemers.org/srfi-37/srfi-37.html")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Anthony Carrico")
+    (description "args-fold: a program argument processor")
+    (license bsd)
+    ))

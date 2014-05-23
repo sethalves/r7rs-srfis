@@ -1,0 +1,12 @@
+(package
+  (name ())
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-19-time.tgz")
+  (library
+    (path "srfi/19.sld")
+    (version "1.0")
+    (homepage "http://srfi.schemers.org/srfi-19/srfi-19.html")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Will Fitzgerald" "Neodesic Corporation")
+    (description "srfi-19-time")
+    (license BSD-style)
+    ))
