@@ -58,7 +58,7 @@
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
-    (checksum (md5 "a81f35a7bb62f327697851d819ce1c74"))
+    (checksum (md5 "c0fea2a2b2ea7f9a9dcae690d506211b"))
     (library
       (name (srfi 95))
       (path "srfi/95.sld")
