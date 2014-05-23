@@ -12,8 +12,8 @@
     (description "Sorting and Merging")
     (license public-domain))
   (library
-   (name (srfi 95-gauche))
-   (path "srfi/95-gauche.sld")
+   (name (srfi gauche-95))
+   (path "srfi/gauche-95.sld")
    (version "1.0")
    (homepage "https://github.com/sethalves")
    (maintainers "Seth Alves <seth@hungry.com>")

@@ -58,7 +58,7 @@
   (package
     (name ())
     (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
-    (checksum (md5 "c0fea2a2b2ea7f9a9dcae690d506211b"))
+    (checksum (md5 "ce171298c288dd4065bd613179ceca0f"))
     (library
       (name (srfi 95))
       (path "srfi/95.sld")
@@ -70,10 +70,10 @@
       (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
       (description "Sorting and Merging")
       (license public-domain)
-      (depends (srfi 95)))
+      (depends))
     (library
-      (name (srfi 95-gauche))
-      (path "srfi/95-gauche.sld")
+      (name (srfi gauche-95))
+      (path "srfi/gauche-95.sld")
       (version "1.0")
       (homepage "https://github.com/sethalves")
       (maintainers "Seth Alves <seth@hungry.com>")

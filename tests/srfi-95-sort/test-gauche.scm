@@ -10,7 +10,7 @@ exec gosh \
         (scheme char)
         (scheme write)
         (srfi 95)
-        (srfi 95-gauche))
+        (srfi gauche-95))
 (include "test-common.scm")
 (display (main-program))
 (newline)
