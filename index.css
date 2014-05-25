@@ -1,0 +1,50 @@
+
+body {
+  font-family: Sans-Serif;
+}
+
+table {
+    border-collapse:collapse;
+}
+
+td {
+    border: 1px solid grey;
+}
+
+p {
+    margin: 0;
+    padding-bottom: 0.08em;
+}
+
+li {
+    padding: 0.8em;
+}
+
+table {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2em;
+}
+
+
+.package-a {
+    font-size:1.4em;
+}
+
+.package-td {
+    vertical-align:top;
+    border-left: 0;
+}
+
+.library-td {
+    border-right: 0;
+}
+
+.lib-details {
+    font-size:0.8em;
+    color:grey
+}
+
+.package-td {
+    width: 20%;
+}
