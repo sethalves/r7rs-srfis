@@ -1,7 +1,10 @@
 (repository
+  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/index.scm")
+  (name "r7rs srfis")
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-27-random.tgz")
+    (url "srfi-27-random.tgz")
+    (size 26647)
     (checksum (md5 "3583731f5c53906795cd6414dba56791"))
     (library
       (name (srfi 27))
@@ -15,7 +18,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-1-lists.tgz")
+    (url "srfi-1-lists.tgz")
+    (size 27159)
     (checksum (md5 "ac4168f776c9c75b07abacaf5f4b3482"))
     (library
       (name (srfi 1))
@@ -29,7 +33,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-69-hash-tables.tgz")
+    (url "srfi-69-hash-tables.tgz")
+    (size 18455)
     (checksum (md5 "5cda81c008ec51200cf093b203f09cfd"))
     (library
       (name (srfi 69))
@@ -43,7 +48,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-13-strings.tgz")
+    (url "srfi-13-strings.tgz")
+    (size 15895)
     (checksum (md5 "3f0357b31c6dfaedd0c5ac0374eeebfd"))
     (library
       (name (srfi 13))
@@ -57,7 +63,8 @@
       (depends (srfi 14))))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-95-sort.tgz")
+    (url "srfi-95-sort.tgz")
+    (size 12823)
     (checksum (md5 "28dd2c5ccc5b46c3c37184fbfacadeb5"))
     (library
       (name (srfi 95))
@@ -83,7 +90,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-19-time.tgz")
+    (url "srfi-19-time.tgz")
+    (size 59415)
     (checksum (md5 "f0ed6b31f1eadee1fe2c0f9cec6bcd53"))
     (library
       (name (srfi 19))
@@ -97,7 +105,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-60-integers-as-bits.tgz")
+    (url "srfi-60-integers-as-bits.tgz")
+    (size 9751)
     (checksum (md5 "63927336986324b00beeec006d9a335e"))
     (library
       (name (srfi 60))
@@ -111,7 +120,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-29-format.tgz")
+    (url "srfi-29-format.tgz")
+    (size 10775)
     (checksum (md5 "86cabcff7a8d4fab3674f031613c655d"))
     (library
       (name (srfi 29))
@@ -125,7 +135,8 @@
       (depends)))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-14-character-sets.tgz")
+    (url "srfi-14-character-sets.tgz")
+    (size 39959)
     (checksum (md5 "bc1698d24529a89d81b21b14d0fe4d68"))
     (library
       (name (srfi 14))
@@ -139,7 +150,8 @@
       (depends (srfi 1) (srfi 60))))
   (package
     (name ())
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-37-argument-processor.tgz")
+    (url "srfi-37-argument-processor.tgz")
+    (size 13335)
     (checksum (md5 "e0114c32179a454d21f2a0fbb1ebd12d"))
     (library
       (name (srfi 37))
