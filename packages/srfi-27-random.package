@@ -1,6 +1,6 @@
 (package
   (name ())
-  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-27-random.tgz")
+  (url "srfi-27-random.tgz")
   (library
     (path "srfi/27.sld")
     (version "1.0")

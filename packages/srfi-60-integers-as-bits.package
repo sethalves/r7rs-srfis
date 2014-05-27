@@ -1,6 +1,6 @@
 (package
   (name ())
-  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-60-integers-as-bits.tgz")
+  (url "srfi-60-integers-as-bits.tgz")
   (library
     (path "srfi/60.sld")
     (version "1.0")

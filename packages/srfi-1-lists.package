@@ -1,6 +1,6 @@
 (package
   (name ())
-  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-1-lists.tgz")
+  (url "srfi-1-lists.tgz")
   (library
     (path "srfi/1.sld")
     (version "1.0")

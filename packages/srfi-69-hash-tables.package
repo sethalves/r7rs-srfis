@@ -1,6 +1,6 @@
 (package
   (name ())
-  (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-69-hash-tables.tgz")
+  (url "srfi-69-hash-tables.tgz")
   (library
     (path "srfi/69.sld")
     (version "1.0")

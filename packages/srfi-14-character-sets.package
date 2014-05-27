@@ -1,5 +1,5 @@
   (package
-    (url "http://r7rs-srfis.s3-website-us-east-1.amazonaws.com/srfi-14-character-sets.tgz")
+    (url "srfi-14-character-sets.tgz")
     (library
       (path "srfi/14.sld")
       (version "1.0")
