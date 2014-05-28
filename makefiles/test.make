@@ -50,6 +50,9 @@ test-gauche:
 	./test-gauche.scm
 	@ echo
 
+test-sagittarius:
+	./test-sagittarius.scm
+	@ echo
 
 
 clean:

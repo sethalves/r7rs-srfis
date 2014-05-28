@@ -5,7 +5,7 @@
     (name ())
     (url "srfi-27-random.tgz")
     (size 26647)
-    (checksum (md5 "3583731f5c53906795cd6414dba56791"))
+    (checksum (md5 "c92cecf16487a3028592189408e4c547"))
     (library
       (name (srfi 27))
       (path "srfi/27.sld")
@@ -152,7 +152,7 @@
     (name ())
     (url "srfi-37-argument-processor.tgz")
     (size 13335)
-    (checksum (md5 "e0114c32179a454d21f2a0fbb1ebd12d"))
+    (checksum (md5 "2d443a78bf49b57013165dd4d80dd35a"))
     (library
       (name (srfi 37))
       (path "srfi/37.sld")
