@@ -108,22 +108,27 @@
   (display "ok")
   (newline)
 
-  ; get/set the state
-  (display "; get/set state: ")
-  (let* ((state1 (random-source-state-ref default-random-source))
-         (x1 (my-random-integer (expt 2 32)))
-         (state2 (random-source-state-ref default-random-source))
-         (x2 (my-random-integer (expt 2 32))))
-    (random-source-state-set! default-random-source state1)
-    (let ((y1 (my-random-integer (expt 2 32))))
-      (if (not (= x1 y1))
-          (error "state get/set doesn't work" x1 y1 state1)))
-    (random-source-state-set! default-random-source state2)
-    (let ((y2 (my-random-integer (expt 2 32))))
-      (if (not (= x2 y2))
-          (error "state get/set doesn't work" x2 y2 state2))))
-  (display "ok")
-  (newline)
+  (cond-expand
+   (chibi
+    ;; http://code.google.com/p/chibi-scheme/issues/detail?id=223
+    )
+   (else
+                                        ; get/set the state
+    (display "; get/set state: ")
+    (let* ((state1 (random-source-state-ref default-random-source))
+           (x1 (my-random-integer (expt 2 32)))
+           (state2 (random-source-state-ref default-random-source))
+           (x2 (my-random-integer (expt 2 32))))
+      (random-source-state-set! default-random-source state1)
+      (let ((y1 (my-random-integer (expt 2 32))))
+        (if (not (= x1 y1))
+            (error "state get/set doesn't work" x1 y1 state1)))
+      (random-source-state-set! default-random-source state2)
+      (let ((y2 (my-random-integer (expt 2 32))))
+        (if (not (= x2 y2))
+            (error "state get/set doesn't work" x2 y2 state2))))
+    (display "ok")
+    (newline)))
 
   ; randomize!
   (display "; randomize!: ")
@@ -153,7 +158,8 @@
           (error "random-source-pseudo-randomize! didn't work" x1 state1))))
   (display "ok")
   (newline)
-  (newline))
+  (newline)
+)
 
 
 ; Testing the MRG32k3a Generator (if implemented)
