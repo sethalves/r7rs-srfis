@@ -127,6 +127,7 @@
       (let ((y2 (my-random-integer (expt 2 32))))
         (if (not (= x2 y2))
             (error "state get/set doesn't work" x2 y2 state2))))
+    (display "ok")
     (newline)))
 
   ; randomize!
