@@ -3,6 +3,38 @@
   (name "r7rs srfis")
   (package
     (name ())
+    (url "srfi-42-eager-comprehensions.tgz")
+    (size 38935)
+    (checksum (md5 "c1ad29407b826500d551629ff923a037"))
+    (library
+      (name (srfi 42))
+      (path "srfi/42.sld")
+      (version "1.0")
+      (homepage
+        "http://srfi.schemers.org/srfi-42/srfi-42.html"
+        "https://github.com/sethalves")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Sebastian Egner")
+      (description "Eager Comprehensions")
+      (license public-domain)
+      (depends)))
+  (package
+    (name ())
+    (url "srfi-78-lightweight-testing.tgz")
+    (size 11287)
+    (checksum (md5 "56f58896b1833c97cb1a2ae53a40ae7c"))
+    (library
+      (name (srfi 78))
+      (path "srfi/78.sld")
+      (version "1.0")
+      (homepage "http://srfi.schemers.org/srfi-78/srfi-78.html")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Sebastian Egner")
+      (description "Lightweight testing")
+      (license bsd)
+      (depends (srfi 42))))
+  (package
+    (name ())
     (url "srfi-26-cut.tgz")
     (size 6679)
     (checksum (md5 "3365bc002bf0084a4eecc24e3a5b85d6"))
