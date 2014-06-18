@@ -3,9 +3,24 @@
   (name "r7rs srfis")
   (package
     (name ())
+    (url "srfi-26-cut.tgz")
+    (size 6679)
+    (checksum (md5 "3365bc002bf0084a4eecc24e3a5b85d6"))
+    (library
+      (name (srfi 26))
+      (path "srfi/26.sld")
+      (version "1.0")
+      (homepage "https://github.com/sethalves")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Sebastian.Egner@philips.com")
+      (description "Notation for Specializing Parameters without Currying")
+      (license bsd)
+      (depends)))
+  (package
+    (name ())
     (url "srfi-27-random.tgz")
     (size 26647)
-    (checksum (md5 "c92cecf16487a3028592189408e4c547"))
+    (checksum (md5 "3c05f1a3a5be549b770fe23a1f054a5b"))
     (library
       (name (srfi 27))
       (path "srfi/27.sld")
@@ -107,7 +122,7 @@
     (name ())
     (url "srfi-60-integers-as-bits.tgz")
     (size 9751)
-    (checksum (md5 "63927336986324b00beeec006d9a335e"))
+    (checksum (md5 "f322a10e848dc85711f8fcdae13e3a68"))
     (library
       (name (srfi 60))
       (path "srfi/60.sld")

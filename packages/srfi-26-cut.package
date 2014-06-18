@@ -1,0 +1,12 @@
+(package
+  (name ())
+  (url "srfi-26-cut.tgz")
+  (library
+    (path "srfi/26.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Sebastian.Egner@philips.com")
+    (description "Notation for Specializing Parameters without Currying")
+    (license bsd)
+    ))
