@@ -82,7 +82,7 @@
     (name ())
     (url "srfi-69-hash-tables.tgz")
     (size 18455)
-    (checksum (md5 "5cda81c008ec51200cf093b203f09cfd"))
+    (checksum (md5 "bf9b0628940c9e85074aaad80fb9969d"))
     (library
       (name (srfi 69))
       (path "srfi/69.sld")
