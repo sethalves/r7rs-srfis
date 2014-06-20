@@ -371,16 +371,12 @@
    (list-ec (:until (:list i '(1 2 3 4 5 6 7 8 9)) (>= i 5)) i)
    => '(1 2 3 4 5) )
 
+  (my-check
+   (list-ec (:while (:vector x (index i) '#(1 2 3 4 5))
+                    (< x 10))
+            x)
+   => '(1 2 3 4 5))
 
-  (cond-expand
-   ;; XXX why is this raising and index-out-of-range for some?
-   ((or gauche sagittarius))
-   (else
-    (my-check
-     (list-ec (:while (:vector x (index i) '#(1 2 3 4 5))
-                      (< x 10))
-              x)
-     => '(1 2 3 4 5))))
   ;; Was broken in reference implementation, even after fix for the
   ;; bug reported by Sunnan, as reported by Jens-Axel Soegaard on
   ;; 4-Jun-2007.
