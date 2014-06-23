@@ -6,6 +6,9 @@ exec csi -s $0 "$@"
 (use r7rs)
 (import-for-syntax r7rs)
 
+(import (scheme base)
+        (numbers))
+
 (include "srfi/60.sld")
 (import (srfi 60))
 

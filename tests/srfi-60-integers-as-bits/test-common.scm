@@ -51,6 +51,9 @@
    (or (= (bitwise-not 3) -4)
        (= (bitwise-not 3) 4611686018427387900)) ;; chicken
 
+
+   (= (arithmetic-shift -1 64) -18446744073709551616)
+
    )
 
   )

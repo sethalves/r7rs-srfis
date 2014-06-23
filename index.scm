@@ -153,8 +153,8 @@
   (package
     (name ())
     (url "srfi-60-integers-as-bits.tgz")
-    (size 9751)
-    (checksum (md5 "f322a10e848dc85711f8fcdae13e3a68"))
+    (size 10263)
+    (checksum (md5 "d4120b05a0aba0219ec832d395ef64db"))
     (library
       (name (srfi 60))
       (path "srfi/60.sld")
