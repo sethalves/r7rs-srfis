@@ -3,9 +3,26 @@
   (name "r7rs srfis")
   (package
     (name ())
+    (version "1.0")
+    (url "srfi-2-and-let.tgz")
+    (size 4096)
+    (checksum (md5 "aaeb7570b64986278e3525262b265727"))
+    (library
+      (name (srfi 2))
+      (path "srfi/2.sld")
+      (version "1.0")
+      (homepage "https://github.com/sethalves")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Alex Shinn")
+      (description "srfi-2-and-let")
+      (license BSD-style "http://synthcode.com/license.txt")
+      (depends)))
+  (package
+    (name ())
+    (version "1.0")
     (url "srfi-42-eager-comprehensions.tgz")
-    (size 38935)
-    (checksum (md5 "c1ad29407b826500d551629ff923a037"))
+    (size 39936)
+    (checksum (md5 "e67f0ba66246626d22e0cfa5cc14d159"))
     (library
       (name (srfi 42))
       (path "srfi/42.sld")
@@ -20,9 +37,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-78-lightweight-testing.tgz")
-    (size 11287)
-    (checksum (md5 "56f58896b1833c97cb1a2ae53a40ae7c"))
+    (size 12288)
+    (checksum (md5 "43ad33b2a0daab0af7bc2ec974d6af6d"))
     (library
       (name (srfi 78))
       (path "srfi/78.sld")
@@ -35,9 +53,10 @@
       (depends (srfi 42))))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-26-cut.tgz")
-    (size 6679)
-    (checksum (md5 "3365bc002bf0084a4eecc24e3a5b85d6"))
+    (size 7680)
+    (checksum (md5 "06e6abf2b0ac2975a5f2faf651217e45"))
     (library
       (name (srfi 26))
       (path "srfi/26.sld")
@@ -50,9 +69,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-27-random.tgz")
-    (size 26647)
-    (checksum (md5 "3c05f1a3a5be549b770fe23a1f054a5b"))
+    (size 27648)
+    (checksum (md5 "ae9c50b69ffdf6ebdb0a0ce2b37796ae"))
     (library
       (name (srfi 27))
       (path "srfi/27.sld")
@@ -65,9 +85,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-1-lists.tgz")
-    (size 27159)
-    (checksum (md5 "ac4168f776c9c75b07abacaf5f4b3482"))
+    (size 28160)
+    (checksum (md5 "5f2c7c9f9e015d97aa8abfa50bbf3374"))
     (library
       (name (srfi 1))
       (path "srfi/1.sld")
@@ -80,9 +101,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-69-hash-tables.tgz")
-    (size 18455)
-    (checksum (md5 "bf9b0628940c9e85074aaad80fb9969d"))
+    (size 19456)
+    (checksum (md5 "6fe240d1e9aca1f91d64ab1b4d15bc77"))
     (library
       (name (srfi 69))
       (path "srfi/69.sld")
@@ -95,9 +117,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-13-strings.tgz")
-    (size 15895)
-    (checksum (md5 "3f0357b31c6dfaedd0c5ac0374eeebfd"))
+    (size 18432)
+    (checksum (md5 "6eef8535081e9171fde0347351dd459c"))
     (library
       (name (srfi 13))
       (path "srfi/13.sld")
@@ -107,12 +130,13 @@
       (authors)
       (description "srfi-13-strings")
       (license BSD-style)
-      (depends (srfi 14))))
+      (depends (chibi optional) (srfi 14))))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-95-sort.tgz")
-    (size 12823)
-    (checksum (md5 "28dd2c5ccc5b46c3c37184fbfacadeb5"))
+    (size 14336)
+    (checksum (md5 "4dc634e2890a4c00c8496953bbe487c7"))
     (library
       (name (srfi 95))
       (path "srfi/95.sld")
@@ -137,9 +161,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-19-time.tgz")
-    (size 59415)
-    (checksum (md5 "f0ed6b31f1eadee1fe2c0f9cec6bcd53"))
+    (size 60416)
+    (checksum (md5 "8a2d1b94548797ecc04a20e53c89f5f8"))
     (library
       (name (srfi 19))
       (path "srfi/19.sld")
@@ -152,9 +177,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-60-integers-as-bits.tgz")
-    (size 10263)
-    (checksum (md5 "d4120b05a0aba0219ec832d395ef64db"))
+    (size 11264)
+    (checksum (md5 "d7d83b9d762709e0fc92c0d9db150469"))
     (library
       (name (srfi 60))
       (path "srfi/60.sld")
@@ -167,9 +193,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-29-format.tgz")
-    (size 10775)
-    (checksum (md5 "86cabcff7a8d4fab3674f031613c655d"))
+    (size 11776)
+    (checksum (md5 "0afe7b9f1deaa2cf7a015e4024ee08cf"))
     (library
       (name (srfi 29))
       (path "srfi/29.sld")
@@ -182,9 +209,10 @@
       (depends)))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-14-character-sets.tgz")
-    (size 39959)
-    (checksum (md5 "bc1698d24529a89d81b21b14d0fe4d68"))
+    (size 40960)
+    (checksum (md5 "5dd50300f07a35acf6624f61a0e15dcb"))
     (library
       (name (srfi 14))
       (path "srfi/14.sld")
@@ -197,9 +225,10 @@
       (depends (srfi 1) (srfi 60))))
   (package
     (name ())
+    (version "1.0")
     (url "srfi-37-argument-processor.tgz")
-    (size 13335)
-    (checksum (md5 "2d443a78bf49b57013165dd4d80dd35a"))
+    (size 14336)
+    (checksum (md5 "5f3251eb6d8d17f19e04511548928e62"))
     (library
       (name (srfi 37))
       (path "srfi/37.sld")
