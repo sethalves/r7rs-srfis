@@ -135,8 +135,8 @@
     (name ())
     (version "1.0")
     (url "srfi-95-sort.tgz")
-    (size 14336)
-    (checksum (md5 "4dc634e2890a4c00c8496953bbe487c7"))
+    (size 13824)
+    (checksum (md5 "1561ffad16466b840286cc2e5876f79a"))
     (library
       (name (srfi 95))
       (path "srfi/95.sld")
