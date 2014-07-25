@@ -88,7 +88,7 @@
     (version "1.0")
     (url "srfi-1-lists.tgz")
     (size 28160)
-    (checksum (md5 "5f2c7c9f9e015d97aa8abfa50bbf3374"))
+    (checksum (md5 "fd69ca2d1c5611cf8772e3b73052c18f"))
     (library
       (name (srfi 1))
       (path "srfi/1.sld")
