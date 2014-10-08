@@ -10,9 +10,7 @@ exec csi -s $0 "$@"
         (numbers))
 
 (include "srfi/60.sld")
-(import (srfi 60))
-
-(include "test-common.scm")
-
-(display (main-program))
+(include "srfi/60/tests.sld")
+(import (srfi 60 tests))
+(display (run-tests))
 (newline)
