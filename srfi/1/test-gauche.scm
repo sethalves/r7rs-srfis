@@ -8,7 +8,6 @@ exec gosh \
 
 (import (scheme base)
         (scheme write)
-        (srfi 1))
-(include "test-common.scm")
-(display (main-program))
+        (srfi 1 tests))
+(display (run-tests))
 (newline)
