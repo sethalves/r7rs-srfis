@@ -1,12 +1,11 @@
 #! /bin/sh
 #| -*- scheme -*-
-exec sash -A . -F .sld $0 "$@"
+exec picrin $0 "$@"
 |#
 
 (import (scheme base)
         (scheme write)
         (scheme time)
-        (srfi 19))
-(include "test-common.scm")
-(display (main-program))
+        (srfi 19 tests))
+(display (run-tests))
 (newline)

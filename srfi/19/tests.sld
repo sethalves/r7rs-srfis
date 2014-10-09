@@ -1,3 +1,10 @@
+(define-library (srfi 19 tests)
+  (export run-tests)
+  (import (scheme base)
+          (scheme time)
+          (scheme write)
+          (srfi 19))
+  (begin
 
 ;;; simple test procedures
 
@@ -208,7 +215,7 @@
 
 
 
-(define (main-program)
+(define (run-tests)
 
   (newline)
   (run-s19-tests #t)
@@ -217,4 +224,4 @@
   (write (current-second))
   (newline)
 
-  #t)
+  #t)))

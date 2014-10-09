@@ -1,4 +1,10 @@
 
+(define-library (srfi 14 tests)
+  (export run-tests)
+  (import (scheme base)
+          (scheme char)
+          (srfi 14))
+  (begin
 
 ;;; This is a regression testing suite for the SRFI-14 char-set library.
 ;;; Olin Shivers
@@ -6,7 +12,7 @@
 ;;; http://srfi.schemers.org/srfi-14/srfi-14-tests.scm
 
 
-(define (main-program)
+(define (run-tests)
 
   (let-syntax ((test (syntax-rules ()
                        ((test form ...)
@@ -222,4 +228,4 @@
 
       ))
 
-)
+)))
