@@ -5,8 +5,6 @@ CHIBI_MODULE_PATH="" exec chibi-scheme -A . -s $0 "$@"
 
 (import (scheme base)
         (scheme write)
-        (scheme char)
-        (srfi 95))
-(include "test-common.scm")
-(display (main-program))
+        (srfi 95 tests))
+(display (run-tests))
 (newline)

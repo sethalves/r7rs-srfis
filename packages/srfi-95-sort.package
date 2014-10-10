@@ -1,23 +1,31 @@
 (package
-  (name ())
-  (url "srfi-95-sort.tgz")
-  (library
-    (path "srfi/95.sld")
-    (version "1.0")
-    (homepage
-      "http://srfi.schemers.org/srfi-95/srfi-95.html"
-      "https://github.com/sethalves")
-    (maintainers "Seth Alves <seth@hungry.com>")
-    (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
-    (description "Sorting and Merging")
-    (license public-domain))
-  (library
-   (name (srfi gauche-95))
-   (path "srfi/gauche-95.sld")
-   (version "1.0")
-   (homepage "https://github.com/sethalves")
-   (maintainers "Seth Alves <seth@hungry.com>")
-   (authors "Seth Alves <seth@hungry.com>")
-   (description "srfi-95 shim for gauche")
-   (license public-domain)
-   ))
+ (name ())
+ (url "srfi-95-sort.tgz")
+ (library
+  (path "srfi/95.sld")
+  (version "1.0")
+  (homepage
+   "http://srfi.schemers.org/srfi-95/srfi-95.html"
+   "https://github.com/sethalves")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
+  (description "Sorting and Merging")
+  (license public-domain))
+ (library
+  (name (srfi gauche-95))
+  (path "srfi/gauche-95.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "srfi-95 shim for gauche")
+  (license public-domain))
+ (library
+  (path "srfi/95/tests.sld")
+  (use-for test)
+  (version "1.0")
+  (homepage "https://github.com/sethalves")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "95")
+  (license bsd)))
