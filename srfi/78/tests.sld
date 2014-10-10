@@ -1,8 +1,14 @@
+(define-library (srfi 78 tests)
+  (export run-tests)
+  (import (scheme base)
+          (srfi 42)
+          (srfi 78))
+  (begin
 
 (define (fib n)
   (if (<= n 2) 1 (+ (fib (- n 1)) (fib (- n 2)))))
 
-(define (main-program)
+(define (run-tests)
 
   ;; <PLAINTEXT>
   ;; Copyright (c) 2005-2006 Sebastian Egner.
@@ -83,5 +89,4 @@
 
   (check-report)
 
-  #t)
-
+  #t)))
