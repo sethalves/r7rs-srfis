@@ -1,3 +1,11 @@
+(define-library (srfi 37 tests)
+  (export run-tests)
+  (import (scheme base)
+          (scheme write)
+          (scheme process-context)
+          (srfi 37))
+  (begin
+
 (define options
  (list (option '(#\d "debug") #f #t
                (lambda (option name arg debug batch paths files)
@@ -21,42 +29,45 @@
 
 
 
-(define (main-program args)
-  (let-values (((debug-level batch-mode include-paths files)
-                (args-fold (cdr args)
-                           options
-                           ;; unrecognized
-                           (lambda (option name arg . seeds)
-                             (error "Unrecognized option:" name))
-                           ;; operand
-                           (lambda (operand debug batch paths files)
-                             (display "operand=") (write operand) (newline)
-                             (display "files=") (write files) (newline)
-                             (values debug batch paths (cons operand files)))
-                           0      ; default value of debug level
-                           #f     ; default value of batch mode
-                           '()    ; initial value of include paths
-                           '()    ; initial value of files
-                           )))
+(define (run-tests)
+  (let ((args (command-line)))
+    (let-values (((debug-level batch-mode include-paths files)
+                  (args-fold (cdr args)
+                             options
+                             ;; unrecognized
+                             (lambda (option name arg . seeds)
+                               (error "Unrecognized option:" name))
+                             ;; operand
+                             (lambda (operand debug batch paths files)
+                               (display "operand=") (write operand) (newline)
+                               (display "files=") (write files) (newline)
+                               (values debug batch paths (cons operand files)))
+                             0      ; default value of debug level
+                             #f     ; default value of batch mode
+                             '()    ; initial value of include paths
+                             '()    ; initial value of files
+                             )))
 
-    (newline)
+      (newline)
 
-    (display "debug level = ")
-    (display debug-level)
-    (newline)
+      (display "debug level = ")
+      (display debug-level)
+      (newline)
 
-    (display "batch mode = ")
-    (display batch-mode)
-    (newline)
+      (display "batch mode = ")
+      (display batch-mode)
+      (newline)
 
-    (display "include paths = ")
-    (display (reverse include-paths))
-    (newline)
+      (display "include paths = ")
+      (display (reverse include-paths))
+      (newline)
 
-    (display "files = ")
-    (display (reverse files))
-    (newline)
-    ))
+      (display "files = ")
+      (display (reverse files))
+      (newline)
+
+      #t
+      )))
 
 
 
@@ -89,3 +100,4 @@
 ;;        (newline))
 ;;      files)))
 
+))
