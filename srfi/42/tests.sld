@@ -1,3 +1,13 @@
+(define-library (srfi 42 tests)
+  (export run-tests)
+  (import (scheme base)
+          (scheme char)
+          (scheme read)
+          (scheme write)
+          (scheme file)
+          (srfi 42))
+  (begin
+
 ; <PLAINTEXT>
 ;; Examples for Eager Comprehensions in [outer..inner|expr]-Convention
 ;; ===================================================================
@@ -705,7 +715,7 @@
 
 
 
-(define (main-program)
+(define (run-tests)
   (test-0)
   (test-1)
   (test-2)
@@ -731,4 +741,5 @@
   (display my-check-wrong)
   (newline)
   (newline)
-)
+
+  (= my-check-wrong 0))))
