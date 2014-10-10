@@ -1,3 +1,12 @@
+(define-library (srfi 27 tests)
+  (export run-tests)
+  (import (scheme base)
+          (scheme file)
+          (scheme write)
+          (srfi 27))
+  (begin
+
+
 ; CONFIDENCE TESTS FOR SRFI-27 "Sources of Random Bits"
 ; =====================================================
 ;
@@ -286,7 +295,7 @@
 
 
 
-(define (main-program)
+(define (run-tests)
   (random-source-randomize! default-random-source)
   (random-integer 100)
 
@@ -294,4 +303,4 @@
   (check-basics-1)
   (display "passed (check-basics-1)")
   (newline)
-  #t)
+  #t)))
