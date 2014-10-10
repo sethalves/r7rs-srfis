@@ -3,13 +3,11 @@
 exec gosh \
 -e '(append! *load-suffixes* (list ".sld"))' \
 -e '(append! *load-path* (list "."))' \
--ftest -r7 $0 "$@"
+-r7 $0 "$@"
 |#
 
 (import (scheme base)
         (scheme write)
-        (srfi 2)
-        (srfi 78))
-(include "test-common.scm")
-(display (main-program))
+        (srfi 2 tests))
+(display (run-tests))
 (newline)
