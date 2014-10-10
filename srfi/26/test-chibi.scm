@@ -1,12 +1,11 @@
 #! /bin/sh
 #| -*- scheme -*-
-exec picrin $0 "$@"
+CHIBI_MODULE_PATH="" exec chibi-scheme -A . -s $0 "$@"
 |#
 
 (import (scheme base)
         (scheme write)
         (scheme file)
-        (srfi 26))
-(include "test-common.scm")
-(display (main-program))
+        (srfi 26 tests))
+(display (run-tests))
 (newline)
