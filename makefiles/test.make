@@ -14,7 +14,7 @@ REPOS=-r ../..
 all:
 
 link-deps:
-	snow2 -s $(REPOS) install $(TEST_DEPS)
+	snow2 -t -s $(REPOS) install $(TEST_DEPS)
 
 install-deps:
 	snow2 $(REPOS) install $(TEST_DEPS)

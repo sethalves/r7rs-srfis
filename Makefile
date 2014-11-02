@@ -31,4 +31,5 @@ test-sagittarius:
 clean:
 	rm -f *~ */*~ */*/*~ */*/*/*~
 	rm -f *.tgz
-	ls tests | while read I; do make -C tests/$$I $@; done
+	find . -name Makefile | grep -v '^./Makefile$$' | while read I; do (cd `dirname $$I` && make clean); done
+	rm -f tmp1
