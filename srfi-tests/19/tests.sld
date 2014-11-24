@@ -168,7 +168,7 @@
      (test-one-utc-tai-edge 1045789645 32 32) ;; about now ...
      )))
 
-(define (tm:date= d1 d2)
+(define (tm%date= d1 d2)
   (and (= (date-year d1) (date-year d2))
        (= (date-month d1) (date-month d2))
        (= (date-day d1) (date-day d2))
@@ -180,13 +180,13 @@
 (define-s19-test! "TAI-Date Conversions"
   (lambda ()
     (and
-     (tm:date= (time-tai->date (make-time time-tai 0 (+ 915148800 29)) 0)
+     (tm%date= (time-tai->date (make-time time-tai 0 (+ 915148800 29)) 0)
                (make-date 0 58 59 23 31 12 1998 0))
-     (tm:date= (time-tai->date (make-time time-tai 0 (+ 915148800 30)) 0)
+     (tm%date= (time-tai->date (make-time time-tai 0 (+ 915148800 30)) 0)
                (make-date 0 59 59 23 31 12 1998 0))
-     (tm:date= (time-tai->date (make-time time-tai 0 (+ 915148800 31)) 0)
+     (tm%date= (time-tai->date (make-time time-tai 0 (+ 915148800 31)) 0)
                (make-date 0 60 59 23 31 12 1998 0))
-     (tm:date= (time-tai->date (make-time time-tai 0 (+ 915148800 32)) 0)
+     (tm%date= (time-tai->date (make-time time-tai 0 (+ 915148800 32)) 0)
                (make-date 0 0 0 0 1 1 1999 0)))))
 
 (define-s19-test! "Date-UTC Conversions"
