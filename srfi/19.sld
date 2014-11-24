@@ -106,7 +106,7 @@
             (scheme time)
             (chibi time)
             ))
-   (sagittarius (import (srfi :19)))
+   ;; (sagittarius (import (srfi 19)))
    (else
     (import (scheme char)
             (scheme cxr)
