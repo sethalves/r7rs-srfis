@@ -12,15 +12,6 @@
   (description "Sorting and Merging")
   (license public-domain))
  (library
-  (name (srfi gauche-95))
-  (path "srfi/gauche-95.sld")
-  (version "1.0")
-  (homepage "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "srfi-95 shim for gauche")
-  (license public-domain))
- (library
   (path "srfi-tests/95/tests.sld")
   (use-for test)
   (version "1.0")
