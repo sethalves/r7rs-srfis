@@ -1,9 +1,22 @@
 (define-library (srfi-tests 13 tests)
   (export run-tests)
+
+  ;; (import (except (scheme base)
+  ;;                 string-copy string-map string-for-each
+  ;;                 string-fill! string-copy! string->list)
+  ;;         (except (scheme char) string-upcase string-downcase)
+  ;;         (srfi 13)
+  ;;         (srfi 14))
+
+
   (import (scheme base)
           (scheme char)
-          (srfi 13)
+          (except (srfi 13)
+                  string-copy string-map string-for-each
+                  string-fill! string-copy! string->list
+                  string-upcase string-downcase)
           (srfi 14))
+
   (begin
     (define (run-tests)
       (let ((t0 (equal? (string-pad "555" 10 #\0) "0000000555"))
