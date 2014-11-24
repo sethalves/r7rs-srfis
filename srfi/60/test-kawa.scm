@@ -1,7 +1,8 @@
-#!/bin/sh
-#|
-export CLASSPATH=/usr/local/lib/kawa.jar 
-exec java kawa.repl "$0" "$*"
+#! /bin/sh
+#| -*- scheme -*-
+exec /usr/local/bin/kawa \
+  -Dkawa.import.path="./*.sld" \
+  $0 "$@"
 |#
 
 
