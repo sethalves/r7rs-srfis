@@ -266,7 +266,7 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "95")
       (license bsd)
-      (depends (srfi gauche-95) (srfi 95))
+      (depends (srfi 95))
       (use-for test)))
   (package
     (name ())
