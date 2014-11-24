@@ -7,6 +7,7 @@ exec /usr/local/bin/kawa \
 
 (import (scheme base)
         (scheme write)
-        (srfi-tests 60 tests))
+        (scheme char)
+        (srfi-tests 13 tests))
 (display (run-tests))
 (newline)
