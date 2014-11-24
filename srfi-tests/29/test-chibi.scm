@@ -2,6 +2,6 @@
 
 (import (scheme base)
         (scheme write)
-        (srfi 29 tests))
+        (srfi-tests 29 tests))
 (display (run-tests))
 (newline)

@@ -8,6 +8,6 @@ CHIBI_MODULE_PATH="" exec chibi-scheme -A . -s $0 "$@"
         (scheme char)
         (chibi char-set)
         (chibi char-set full)
-        (srfi 13 tests))
+        (srfi-tests 13 tests))
 (display (run-tests))
 (newline)

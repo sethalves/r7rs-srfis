@@ -9,6 +9,6 @@ exec csi -s $0 "$@"
 (import-for-syntax r7rs)
 (import (scheme base))
 (include "srfi/37/tests.sld")
-(import (srfi 37 tests))
+(import (srfi-tests 37 tests))
 (display (run-tests))
 (newline)

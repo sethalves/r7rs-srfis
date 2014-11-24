@@ -5,6 +5,6 @@ CHIBI_MODULE_PATH="" exec chibi-scheme -A . -s $0 "$@"
 
 (import (scheme base)
         (scheme write)
-        (srfi 42 tests))
+        (srfi-tests 42 tests))
 (display (run-tests))
 (newline)

@@ -1,4 +1,4 @@
-TEST_DEPS="(srfi 13 tests)"
+TEST_DEPS="(srfi-tests 13 tests)"
 include ../../makefiles/test.make
 
 clean-extra:

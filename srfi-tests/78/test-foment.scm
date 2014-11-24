@@ -5,6 +5,6 @@ exec foment $0 "$@"
 
 (import (scheme base)
         (scheme write)
-        (srfi 78 tests))
+        (srfi-tests 78 tests))
 (display (run-tests))
 (newline)

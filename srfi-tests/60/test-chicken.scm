@@ -11,6 +11,6 @@ exec csi -s $0 "$@"
 
 (include "srfi/60.sld")
 (include "srfi/60/tests.sld")
-(import (srfi 60 tests))
+(import (srfi-tests 60 tests))
 (display (run-tests))
 (newline)

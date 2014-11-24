@@ -7,6 +7,6 @@ exec gosh \
 |#
 
 (import (scheme base) (scheme write))
-(import (srfi 60 tests))
+(import (srfi-tests 60 tests))
 (display (run-tests))
 (newline)

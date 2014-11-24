@@ -8,6 +8,6 @@ exec csi -s $0 "$@"
 (import (scheme base)
         (scheme write))
 (include "srfi/69/tests.sld")
-(import (srfi 69 tests))
+(import (srfi-tests 69 tests))
 (display (run-tests))
 (newline)

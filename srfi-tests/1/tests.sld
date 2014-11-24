@@ -1,4 +1,4 @@
-(define-library (srfi 1 tests)
+(define-library (srfi-tests 1 tests)
   (export run-tests)
   (import (scheme base)
           (srfi 1))

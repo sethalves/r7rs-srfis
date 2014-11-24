@@ -8,6 +8,6 @@ exec gosh \
 
 (import (scheme base)
         (scheme write)
-        (srfi 42 tests))
+        (srfi-tests 42 tests))
 (display (run-tests))
 (newline)

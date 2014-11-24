@@ -10,7 +10,7 @@
   (description "srfi-2-and-let")
   (license BSD-style "http://synthcode.com/license.txt"))
  (library
-  (path "srfi/2/tests.sld")
+  (path "srfi-tests/2/tests.sld")
   (use-for test)
   (version "1.0")
   (homepage "https://github.com/sethalves")

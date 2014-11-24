@@ -10,7 +10,7 @@
   (description "Integers as Bits")
   (license mit))
  (library
-  (path "srfi/60/tests.sld")
+  (path "srfi-tests/60/tests.sld")
   (use-for test)
   (version "1.0")
   (homepage "https://github.com/sethalves")

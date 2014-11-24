@@ -10,7 +10,7 @@
     (description "Localization / format")
     (license mit))
   (library
-    (path "srfi/29/tests.sld")
+    (path "srfi-tests/29/tests.sld")
     (use-for test)
     (version "1.0")
     (homepage "https://github.com/sethalves")
