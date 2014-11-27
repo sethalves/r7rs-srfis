@@ -34,7 +34,7 @@
     (version "1.0")
     (url "srfi-42-eager-comprehensions.tgz")
     (size 63488)
-    (checksum (md5 "76b86fe6a030653ba005e0c674a186ed"))
+    (checksum (md5 "ea7b8f04827571a6f6bf6f0b69c07eb9"))
     (library
       (name (srfi 42))
       (path "srfi/42.sld")
@@ -64,7 +64,7 @@
     (version "1.0")
     (url "srfi-78-lightweight-testing.tgz")
     (size 17408)
-    (checksum (md5 "0e0e3b610a4cf7e26c03ac6afa0db16a"))
+    (checksum (md5 "993167479f50fee668f2f17088041e27"))
     (library
       (name (srfi 78))
       (path "srfi/78.sld")
@@ -120,7 +120,7 @@
     (version "1.0")
     (url "srfi-27-random.tgz")
     (size 40448)
-    (checksum (md5 "4cc107b9197cad975cf7eb4fd7f2ab65"))
+    (checksum (md5 "c7a10ccc2e4d0acacb23eac3b0ccff4b"))
     (library
       (name (srfi 27))
       (path "srfi/27.sld")
@@ -262,7 +262,7 @@
     (version "1.0")
     (url "srfi-19-time.tgz")
     (size 71168)
-    (checksum (md5 "30f2ca35e9921ff086efae15a7837f20"))
+    (checksum (md5 "1d728da4d9c099ef77a2020597e64aa9"))
     (library
       (name (srfi 19))
       (path "srfi/19.sld")
@@ -289,8 +289,8 @@
     (name ())
     (version "1.0")
     (url "srfi-60-integers-as-bits.tgz")
-    (size 15872)
-    (checksum (md5 "344adf9e0e33349c1797317fec468dd4"))
+    (size 16384)
+    (checksum (md5 "33515d36fa78243621429162a81f6560"))
     (library
       (name (srfi 60))
       (path "srfi/60.sld")
@@ -317,8 +317,8 @@
     (name ())
     (version "1.0")
     (url "srfi-29-format.tgz")
-    (size 14848)
-    (checksum (md5 "56c0eb9a9377ea400c309924f209abf2"))
+    (size 15360)
+    (checksum (md5 "a33ae1b7da724ca03d140e21da2d5511"))
     (library
       (name (srfi 29))
       (path "srfi/29.sld")
@@ -328,7 +328,7 @@
       (authors "Scott G. Miller")
       (description "Localization / format")
       (license mit)
-      (depends (srfi 29))
+      (depends)
       (use-for final))
     (library
       (name (srfi-tests 29 tests))
@@ -374,7 +374,7 @@
     (version "1.0")
     (url "srfi-37-argument-processor.tgz")
     (size 19968)
-    (checksum (md5 "5de88c51f27e78ac7baff6d751c928d4"))
+    (checksum (md5 "e07203c4b6b92c7abd1a7f9cea092c71"))
     (library
       (name (srfi 37))
       (path "srfi/37.sld")
