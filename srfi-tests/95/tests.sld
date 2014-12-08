@@ -2,9 +2,7 @@
   (export run-tests)
   (import (scheme base)
           (scheme char))
-  (cond-expand
-   (gauche (import (srfi gauche-95)))
-   (else (import (srfi 95))))
+  (import (srfi 95))
   (begin
     (define (run-tests)
 
