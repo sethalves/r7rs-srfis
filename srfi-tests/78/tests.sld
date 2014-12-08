@@ -56,12 +56,12 @@
   ;; -- simple test --
 
   (check (+ 1 1) => 2)
-  (check (+ 1 1) => 3) ; fails
+;  (check (+ 1 1) => 3) ; fails
 
   ;; -- different equality predicate --
 
   (check (vector 1) => (vector 1))
-  (check (vector 1) (=> eq?) (vector 1)) ; fails
+;  (check (vector 1) (=> eq?) (vector 1)) ; fails
 
   ;; -- parametric tests --
 
@@ -71,9 +71,9 @@
 
   (check-ec (: e 100) (positive? (expt 2 e)) => #t (e)) ; fails on fixnums
 
-  (check-ec (: e 100) (:let x (expt 2.0 e)) (= (+ x 1) x) => #f (x)) ; fails
+;  (check-ec (: e 100) (:let x (expt 2.0 e)) (= (+ x 1) x) => #f (x)) ; fails
 
-  (check-ec (: e 100) (:let x (expt 2.0 e)) (= (+ x 1) x) => #f)
+;  (check-ec (: e 100) (:let x (expt 2.0 e)) (= (+ x 1) x) => #f)
 
   (check-ec (: x 10) (: y 10) (: z 10)
             (* x (+ y z)) => (+ (* x y) (* x z))
@@ -88,5 +88,4 @@
   ;; -- reporting --
 
   (check-report)
-
-  #t)))
+  (check-passed? 9))))

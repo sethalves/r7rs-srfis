@@ -17,7 +17,7 @@ link-deps:
 	snow2 -t -s $(REPOS) install $(TEST_DEPS)
 
 install-deps:
-	snow2 $(REPOS) install $(TEST_DEPS)
+	snow2 -t $(REPOS) install $(TEST_DEPS)
 
 download-deps:
 	snow2 install $(TEST_DEPS)

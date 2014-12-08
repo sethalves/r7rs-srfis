@@ -233,9 +233,6 @@
      (else))
 
 
-
-
-
     (cond-expand
      (chibi
       (define logbit? bit-set?)

@@ -10,23 +10,25 @@ package:
 upload: package
 	snow2 upload
 
-test:
-	ls tests | while read I; do make -C tests/$$I $@; done
+
+link-deps:
+	find . -name Makefile | grep -v '^./Makefile$$' | while read I; do (cd `dirname $$I` && make link-deps); done
 
 test-chibi:
-	ls tests | while read I; do make -C tests/$$I $@; done
+	csnow2 run-source-tests
 
 test-chicken:
-	ls tests | while read I; do make -C tests/$$I $@; done
+	echo
 
 test-foment:
-	ls tests | while read I; do make -C tests/$$I $@; done
+	fsnow2 run-source-tests
 
 test-gauche:
-	ls tests | while read I; do make -C tests/$$I $@; done
+	gsnow2 run-source-tests
 
 test-sagittarius:
-	ls tests | while read I; do make -C tests/$$I $@; done
+	ssnow2 run-source-tests
+
 
 clean:
 	rm -f *~ */*~ */*/*~ */*/*/*~

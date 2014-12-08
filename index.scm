@@ -6,7 +6,7 @@
     (version "1.0")
     (url "srfi-2-and-let.tgz")
     (size 8704)
-    (checksum (md5 "da6ce46ebca4335ee9b68f4f18e5a054"))
+    (checksum (md5 "ee0ae7e417fbc7f8973b9987cf7794ac"))
     (library
       (name (srfi 2))
       (path "srfi/2.sld")
@@ -27,14 +27,14 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "tests for srfi-2")
       (license bsd)
-      (depends (srfi 78) (srfi 42) (srfi 2))
+      (depends (srfi 2))
       (use-for test)))
   (package
     (name ())
     (version "1.0")
     (url "srfi-42-eager-comprehensions.tgz")
     (size 63488)
-    (checksum (md5 "ea7b8f04827571a6f6bf6f0b69c07eb9"))
+    (checksum (md5 "db8a1d054a8aaa904bf94f95f60a05c4"))
     (library
       (name (srfi 42))
       (path "srfi/42.sld")
@@ -289,8 +289,8 @@
     (name ())
     (version "1.0")
     (url "srfi-60-integers-as-bits.tgz")
-    (size 16384)
-    (checksum (md5 "33515d36fa78243621429162a81f6560"))
+    (size 18432)
+    (checksum (md5 "b45a385e777082406db1e17f30dc3ac4"))
     (library
       (name (srfi 60))
       (path "srfi/60.sld")
