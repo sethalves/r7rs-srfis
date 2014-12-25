@@ -60,5 +60,5 @@ clean:
 #	for DEP in $(DEPS) ; do \
 #		$(snow2) uninstall $(TEST_DEPS); \
 #	done
-	rm -rf srfi srfi-tests
+	rm -rf srfi srfi-tests srfi-ancillary
 	make clean-extra

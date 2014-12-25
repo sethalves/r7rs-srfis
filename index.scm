@@ -119,8 +119,8 @@
     (name ())
     (version "1.0")
     (url "srfi-106-basic-socket-interface.tgz")
-    (size 35328)
-    (checksum (md5 "2da129ea9e9a5f332d6505242ca940fb"))
+    (size 38912)
+    (checksum (md5 "d94f588be8546ccc71855039c6cb811f"))
     (library
       (name (srfi 106))
       (path "srfi/106.sld")
@@ -148,6 +148,7 @@
       (depends
         (srfi-ancillary 106 constants)
         (srfi-ancillary 106 impl-chibi)
+        (srfi-ancillary 106 impl-chicken)
         (srfi-ancillary 106 unimplemented))
       (use-for final))
     (library
@@ -174,7 +175,7 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "High and middle range of socket interfaces.")
       (license bsd)
-      (depends)
+      (depends (srfi-ancillary 106 constants))
       (use-for final))
     (library
       (name (srfi-ancillary 106 impl-chibi))
@@ -187,10 +188,10 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "High and middle range of socket interfaces.")
       (license bsd)
-      (depends)
+      (depends (srfi-ancillary 106 constants))
       (use-for final))
     (library
-      (name (srfi-ancillary 106 impl-chibi))
+      (name (srfi-ancillary 106 impl-chicken))
       (path "srfi-ancillary/106/impl-chicken.sld")
       (version "1.0")
       (homepage
@@ -200,7 +201,20 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "High and middle range of socket interfaces.")
       (license bsd)
-      (depends)
+      (depends (srfi-ancillary 106 constants))
+      (use-for final))
+    (library
+      (name (srfi-ancillary 106 unimplemented))
+      (path "srfi-ancillary/106/impl-kawa.sld")
+      (version "1.0")
+      (homepage
+        "http://srfi.schemers.org/srfi-106/srfi-106.html"
+        "https://github.com/sethalves")
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Seth Alves <seth@hungry.com>")
+      (description "High and middle range of socket interfaces.")
+      (license bsd)
+      (depends (srfi-ancillary 106 constants))
       (use-for final))
     (library
       (name (srfi-tests 106 tests))

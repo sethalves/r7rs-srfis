@@ -59,5 +59,6 @@
           (scheme write)
           (scheme case-lambda)
           (only (srfi 1) lset-adjoin lset-difference)
+          (srfi-ancillary 106 constants)
           (srfi-ancillary 106 interface)
           ))
