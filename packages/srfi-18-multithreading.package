@@ -1,0 +1,28 @@
+(package
+  (name ())
+  (url "srfi-18-multithreading.tgz")
+  (library
+    (path "srfi/18.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Seth Alves <seth@hungry.com>")
+    (description "Multithreading support")
+    (license bsd))
+  (library
+    (path "srfi-ancillary/18/faux.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Seth Alves <seth@hungry.com>")
+    (description "Faux Multithreading support")
+    (license bsd))
+  (library
+    (path "srfi-tests/18/tests.sld")
+    (use-for test)
+    (version "1.0")
+    (homepage "https://github.com/sethalves")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Seth Alves <seth@hungry.com>")
+    (description "18")
+    (license bsd)))
