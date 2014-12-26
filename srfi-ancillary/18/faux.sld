@@ -1,5 +1,6 @@
 (define-library (srfi-ancillary 18 faux)
   (export current-thread
+          thread?
           make-thread
           thread-name
           thread-specific
@@ -29,7 +30,6 @@
           time->seconds
           seconds->time
           current-exception-handler
-          ;; with-exception-handler
           join-timeout-exception?
           abandoned-mutex-exception?
           terminated-thread-exception?
@@ -108,11 +108,13 @@
       (specific mutex-specific mutex-specific-set!))
 
 
-    (define-record-type <condition>
-      (new-condition blocked-threads specific)
-      condition?
-      (blocked-threads condition-blocked-threads condition-blocked-thread-set!)
-      (specific condition-specific condition-specific-set!))
+    (define-record-type <condition-variable>
+      (new-condition-variable name blocked-threads specific)
+      condition-variable?
+      (name condition-variable-name condition-variable-name-set!)
+      (blocked-threads condition-variable-blocked-threads
+                       condition-variable-blocked-threads-set!)
+      (specific condition-variable-specific condition-variable-specific-set!))
 
 
     (define running-thread (new-thread
@@ -243,9 +245,7 @@
     (define (thread-yield!) 
       (call-with-current-continuation
        (lambda (cont)
-         (thread-thunk-set!
-          running-thread
-          (lambda () (cont #t)))
+         (thread-thunk-set! running-thread (lambda () (cont #t)))
          (scheduler))))
 
 
@@ -341,70 +341,92 @@
        ((mutex timeout) (mutex-lock! mutex timeout running-thread))
        ((mutex timeout thread)
         (cond ((and (mutex-locked? mutex) (not (past-time? timeout)))
-               (call-with-current-continuation
-                (lambda (cont)
-                  (thread-thunk-set!
-                   running-thread
-                   (lambda ()
-                     (cont (mutex-lock! mutex timeout thread)))))))
+               (let ((timeout (->time timeout)))
+                 (call-with-current-continuation
+                  (lambda (cont)
+                    (thread-thunk-set!
+                     running-thread
+                     (lambda ()
+                       (cont (mutex-lock! mutex timeout thread))))
+                    (scheduler)))))
+
               ((mutex-locked? mutex)
                ;; timeout is 0
                #f)
+
               ;; mutex wasn't locked...
               ((not thread)
                ;; if thread is #f the mutex becomes locked/not-owned
                (mutex-owner-set! mutex #f)
                (mutex-locked?-set! mutex #t)
                #t)
+
               ((eq? (thread-state thread) 'terminated)
                ;; if thread is terminated the mutex becomes unlocked/abandoned
                (mutex-owner-set! mutex #f)
                (mutex-locked?-set! mutex #f)
                #f)
+
               (else
                ;; otherwise mutex becomes locked/owned with thread
                ;; as the owner. 
                (mutex-owner-set! mutex thread)
                (mutex-locked?-set! mutex #t)
                #t)))))
-              
+
 
     (define mutex-unlock!
       (case-lambda
-       ((mutex) (mutex-unlock! mutex #f #f))
+       ((mutex) (mutex-locked?-set! mutex #f))
        ((mutex condition-variable)
         (mutex-unlock! mutex condition-variable #f))
        ((mutex condition-variable timeout)
-        ;; XXX condition-variable and timeout
+        (condition-variable-blocked-threads-set!
+         condition-variable
+         (cons running-thread
+               (condition-variable-blocked-threads condition-variable)))
+
+        (thread-sleep-until-set! running-thread (->time timeout))
+        (thread-state-set! running-thread 'blocked)
         (mutex-locked?-set! mutex #f)
-        )))
+
+        (call-with-current-continuation
+         (lambda (cont)
+           (thread-thunk-set!
+            running-thread
+            (lambda ()
+              (cont (not (past-time? timeout)))))
+           (scheduler))))))
 
 
 
-    (define (condition-variable? obj)
-      #f)
+    (define make-condition-variable
+      (case-lambda
+       (() (make-condition-variable #f))
+       ((name)
+        (new-condition-variable name '() #f))))
 
-    (define (make-condition-variable . maybe-name)
-      #f)
-
-    (define (condition-variable-name condition-variable)
-      #f)
-
-    (define (condition-variable-specific condition-variable)
-      #f)
-
-    (define (condition-variable-specific-set! condition-variable obj)
-      #f)
 
     (define (condition-variable-signal! condition-variable)
-      #f)
+      (let ((blocked-threads
+             (condition-variable-blocked-threads condition-variable)))
+        (cond ((null? blocked-threads) #t)
+              (else
+               (condition-variable-blocked-threads-set!
+                condition-variable (cdr blocked-threads))
+               (thread-state-set! (car blocked-threads) 'runnable)))))
+
 
     (define (condition-variable-broadcast! condition-variable)
-      #f)
+      (for-each
+       (lambda (thread)
+         (thread-state-set! thread 'runnable))
+       (condition-variable-blocked-threads condition-variable))
+      (condition-variable-blocked-threads-set! condition-variable '()))
 
 
     (define (current-exception-handler)
-      #f)
+      (error "current-exception-handler is unimplemented"))
 
 
     (define (join-timeout-exception? obj)
