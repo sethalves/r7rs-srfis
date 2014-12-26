@@ -58,7 +58,7 @@
     (define (past-time? tm)
       (cond ((eq? tm #f) #f)
             ((time? tm)
-             (>= (time->seconds tm) (current-second)))
+             (>= (current-second) (time->seconds tm)))
             ((number? tm)
              (= tm 0))
             (else
@@ -177,13 +177,15 @@
 
 
     (define (display-thread thread)
-      (write thread)
+      ;; (write thread)
       (display " state=")
       (write (thread-state thread))
       (display " name=")
       (write (thread-name thread))
       (display " join=")
       (write (thread-join-thread thread))
+      (display " sleep=")
+      (write (thread-sleep-until thread))
       (display " result=")
       (write (thread-end-result thread))
       (display " exn=")
@@ -241,7 +243,9 @@
     (define (thread-yield!) 
       (call-with-current-continuation
        (lambda (cont)
-         (thread-thunk-set! running-thread cont)
+         (thread-thunk-set!
+          running-thread
+          (lambda () (cont #t)))
          (scheduler))))
 
 
