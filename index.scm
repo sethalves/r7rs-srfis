@@ -234,8 +234,8 @@
     (name ())
     (version "1.0")
     (url "srfi-18-multithreading.tgz")
-    (size 23552)
-    (checksum (md5 "232a393ee5f8cb9870689db3337ac1c0"))
+    (size 24064)
+    (checksum (md5 "f5e95e0ec3083c54e30f30d9eda33552"))
     (library
       (name (srfi 18))
       (path "srfi/18.sld")
@@ -267,7 +267,7 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "18")
       (license bsd)
-      (depends (srfi 78))
+      (depends (srfi 18) (srfi 78))
       (use-for test)))
   (package
     (name ())
