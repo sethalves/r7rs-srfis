@@ -45,8 +45,6 @@
   (begin
 
 
-
-
     (define-record-type <time>
       (seconds->time seconds) ;; since epoch
       time?
@@ -83,7 +81,7 @@
     (define-record-type <thread>
       (new-thread thunk next previous state name specific
                   end-result end-exception mutexes sleep-until
-                  join-thread)
+                  join-thread wait-on-mutex)
       thread?
       (thunk thread-thunk thread-thunk-set!)
       (next thread-next thread-next-set!)
@@ -96,6 +94,7 @@
       (mutexes thread-mutexes thread-mutexes-set!)
       (sleep-until thread-sleep-until thread-sleep-until-set!)
       (join-thread thread-join-thread thread-join-thread-set!)
+      (wait-on-mutex thread-wait-on-mutex thread-wait-on-mutex-set!)
       )
 
 
@@ -129,11 +128,36 @@
                             '() ;; mutexes
                             #f ;; sleep until
                             #f ;; join thread
+                            #f ;; waiting to lock mutex
                             ))
     (thread-next-set! running-thread running-thread)
     (thread-previous-set! running-thread running-thread)
 
-    (define (current-thread) running-thread)
+
+    (define (trace->writable x)
+      (cond ((boolean? x) x)
+            ((thread? x) (thread-name x))
+            ((mutex? x) (mutex-name x))
+            ((condition-variable? x) (condition-variable-name x))
+            (else x)))
+
+
+    (define-syntax trace
+      (syntax-rules ()
+        ((_ what) (begin
+                    (write (cons (trace->writable running-thread)
+                                 (cons ":"
+                                       (map trace->writable what))))
+                    (newline)))))
+
+    (define-syntax trace
+      (syntax-rules ()
+        ((_ what) #t)))
+
+
+    (define (current-thread)
+      (trace `(current-thread))
+      running-thread)
 
     (define (thread-ends thread end-result)
       ;; (write thread)
@@ -149,6 +173,7 @@
       (case-lambda
        ((thunk) (make-thread thunk "unknown"))
        ((thunk name)
+        (trace `(make-thread thunk ,name))
         (let* ((was-prev-thread (thread-previous running-thread))
                (new-t (new-thread
                        #f
@@ -162,6 +187,7 @@
                        '() ;; mutexes
                        #f ;; sleep until
                        #f ;; join thread
+                       #f ;; waiting to lock mutex
                        )))
           (thread-thunk-set! new-t
                              (lambda ()
@@ -172,6 +198,7 @@
 
 
     (define (thread-start! thread)
+      (trace `(thread-start! ,thread))
       (if (not (eq? (thread-state thread) 'new))
           (error "thread-start! called on non-new thread" thread))
       (thread-state-set! thread 'runnable)
@@ -209,6 +236,14 @@
       (newline))
 
 
+    (define (make-thread-runnable thread)
+      (thread-join-thread-set! thread #f)
+      (thread-sleep-until-set! thread #f)
+      (thread-wait-on-mutex-set! thread #f)
+      (thread-state-set! thread 'runnable)
+      thread)
+
+
     (define (scheduler)
       (let ((thread-to-run
              (let loop ((thread (thread-next running-thread)))
@@ -224,25 +259,31 @@
                       (thread-join-thread thread)
                       (eq? (thread-state (thread-join-thread thread))
                            'terminated))
-                 (thread-join-thread-set! thread #f)
-                 (thread-state-set! thread 'runnable)
-                 thread)
+                 (make-thread-runnable thread))
 
                 ;; sleeping
                 ((and (eq? (thread-state thread) 'blocked)
                       (thread-sleep-until thread)
                       (past-time? (thread-sleep-until thread)))
-                 (thread-sleep-until-set! thread #f)
-                 (thread-state-set! thread 'runnable)
-                 thread)
+                 (make-thread-runnable thread))
+
+                ;; blocked when trying to lock a mutex
+                ((and (eq? (thread-state thread) 'blocked)
+                      (thread-wait-on-mutex thread)
+                      (not (mutex-locked? (thread-wait-on-mutex thread))))
+                 (make-thread-runnable thread))
 
                 (else
                  (loop (thread-next thread)))))))
+        (trace `(SCHEDULER ,thread-to-run))
         (set! running-thread thread-to-run)
-        ((thread-thunk running-thread))))
+        (let ((thunk-to-run (thread-thunk running-thread)))
+          (thread-thunk-set! running-thread #f)
+          (thunk-to-run))))
 
 
     (define (thread-yield!) 
+      (trace `(thread-yield!))
       (call-with-current-continuation
        (lambda (cont)
          (thread-thunk-set! running-thread (lambda () (cont #t)))
@@ -250,6 +291,7 @@
 
 
     (define (thread-sleep! timeout)
+      (trace `(thread-sleep! ,timeout))
       (cond ((not (past-time? timeout))
              (thread-sleep-until-set! running-thread (->time timeout))
              (thread-state-set! running-thread 'blocked)
@@ -257,6 +299,7 @@
 
 
     (define (thread-terminate! thread)
+      (trace `(thread-terminate! ,thread))
       ;; Causes an abnormal termination of the thread.
       (cond ((not (eq? (thread-state thread) 'terminated))
              ;; If the thread is not already terminated
@@ -284,6 +327,7 @@
        ((thread timeout)
         (thread-join! thread timeout (new-exception 'join-timeout #f)))
        ((thread timeout timeout-value)
+        (trace `(thread-join! ,thread ,timeout ,timeout-value))
         (cond
          ((past-time? timeout)
           ;; if timeout was 0, return immediately
@@ -311,8 +355,7 @@
                                      (thread-end-result thread))
                                  ;; timeout reached
                                  timeout-value))))
-                    (scheduler)
-                    (error "thread-join! didn't expect to get here")))))
+                    (scheduler)))))
             (if (srfi-18-exception? result)
                 (raise result)
                 result)))))))
@@ -321,7 +364,9 @@
     (define make-mutex
       (case-lambda
        (() (make-mutex #f))
-       ((name) (new-mutex #f running-thread name #f))))
+       ((name)
+        (trace `(make-mutex ,name))
+        (new-mutex #f running-thread name #f))))
 
 
     (define (mutex-state mutex)
@@ -340,10 +385,14 @@
        ((mutex) (mutex-lock! mutex #f running-thread))
        ((mutex timeout) (mutex-lock! mutex timeout running-thread))
        ((mutex timeout thread)
+        (trace `(mutex-lock! ,mutex ,timeout ,thread))
         (cond ((and (mutex-locked? mutex) (not (past-time? timeout)))
                (let ((timeout (->time timeout)))
                  (call-with-current-continuation
                   (lambda (cont)
+                    (thread-state-set! running-thread 'blocked)
+                    (thread-wait-on-mutex-set! running-thread mutex)
+                    (thread-sleep-until-set! running-thread timeout)
                     (thread-thunk-set!
                      running-thread
                      (lambda ()
@@ -377,10 +426,13 @@
 
     (define mutex-unlock!
       (case-lambda
-       ((mutex) (mutex-locked?-set! mutex #f))
+       ((mutex)
+        (trace `(mutex-unlock! ,mutex))
+        (mutex-locked?-set! mutex #f))
        ((mutex condition-variable)
         (mutex-unlock! mutex condition-variable #f))
        ((mutex condition-variable timeout)
+        (trace `(mutex-unlock! ,mutex ,condition-variable ,timeout))
         (condition-variable-blocked-threads-set!
          condition-variable
          (cons running-thread
@@ -404,10 +456,12 @@
       (case-lambda
        (() (make-condition-variable #f))
        ((name)
+        (trace `(make-condition-variable ,name))
         (new-condition-variable name '() #f))))
 
 
     (define (condition-variable-signal! condition-variable)
+      (trace `(condition-variable-signal! ,condition-variable))
       (let ((blocked-threads
              (condition-variable-blocked-threads condition-variable)))
         (cond ((null? blocked-threads) #t)
@@ -418,6 +472,7 @@
 
 
     (define (condition-variable-broadcast! condition-variable)
+      (trace `(condition-variable-broadcast! ,condition-variable))
       (for-each
        (lambda (thread)
          (thread-state-set! thread 'runnable))
