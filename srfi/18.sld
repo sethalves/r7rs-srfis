@@ -1,5 +1,6 @@
 (define-library (srfi 18)
   (export current-thread
+          thread?
           make-thread
           thread-name
           thread-specific
