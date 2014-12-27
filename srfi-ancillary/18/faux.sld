@@ -142,13 +142,13 @@
             (else x)))
 
 
-    (define-syntax trace
-      (syntax-rules ()
-        ((_ what) (begin
-                    (write (cons (trace->writable running-thread)
-                                 (cons ":"
-                                       (map trace->writable what))))
-                    (newline)))))
+    ;; (define-syntax trace
+    ;;   (syntax-rules ()
+    ;;     ((_ what) (begin
+    ;;                 (write (cons (trace->writable running-thread)
+    ;;                              (cons ":"
+    ;;                                    (map trace->writable what))))
+    ;;                 (newline)))))
 
     (define-syntax trace
       (syntax-rules ()
@@ -160,11 +160,6 @@
       running-thread)
 
     (define (thread-ends thread end-result)
-      ;; (write thread)
-      ;; (display " is ending with ")
-      ;; (write end-result)
-      ;; (newline)
-
       (thread-state-set! thread 'terminated)
       (thread-end-result-set! thread end-result)
       (scheduler))
