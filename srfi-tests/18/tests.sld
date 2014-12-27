@@ -151,13 +151,13 @@
 
 
       (let ((start-time (current-second)))
-        (thread-sleep! 1.5)
-        (check (> (current-second) (+ start-time 1.0)) => #t))
+        (thread-sleep! 1.1)
+        (check (>= (current-second) (+ start-time 1.0)) => #t))
 
 
       (let ((start-time (current-second)))
-        (alt-sleep! 1.5)
-        (check (> (current-second) (+ start-time 1.0)) => #t))
+        (alt-sleep! 1.1)
+        (check (>= (current-second) (+ start-time 1.0)) => #t))
 
       (let ((thread (make-thread
                      (lambda ()
