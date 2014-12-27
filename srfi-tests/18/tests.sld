@@ -3,8 +3,8 @@
   (import (scheme base)
           (scheme write)
           (scheme time)
-          (srfi-ancillary 18 faux)
-          ;; (srfi 18)
+          ;; (srfi-ancillary 18 faux)
+          (srfi 18)
           (srfi 78)
           )
   (begin
@@ -52,9 +52,9 @@
     ;; operation)
 
     (define (make-empty-mailbox)
-      (let ((mutex (make-mutex))
-            (put-condvar (make-condition-variable))
-            (get-condvar (make-condition-variable))
+      (let ((mutex (make-mutex "mailbox-mutex"))
+            (put-condvar (make-condition-variable "put-condvar"))
+            (get-condvar (make-condition-variable "get-condvar"))
             (full? #f)
             (cell #f))
 
