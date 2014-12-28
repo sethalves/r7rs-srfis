@@ -20,6 +20,8 @@
     (import (srfi-ancillary 106 impl-chibi)))
    (chicken
     (import (srfi-ancillary 106 impl-chicken)))
+   (kawa
+    (import (srfi-ancillary 106 impl-kawa)))
    (else
     (import (srfi-ancillary 106 unimplemented))))
 
