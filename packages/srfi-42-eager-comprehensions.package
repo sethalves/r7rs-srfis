@@ -4,9 +4,10 @@
  (library
   (path "srfi/42.sld")
   (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-42/srfi-42.html"
-   "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-42/srfi-42.html")
+   (else "http://srfi.schemers.org/srfi-42/srfi-42.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Sebastian Egner")
   (description "Eager Comprehensions")

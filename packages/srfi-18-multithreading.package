@@ -5,6 +5,9 @@
     (path "srfi/18.sld")
     (version "1.0")
     (homepage "https://github.com/sethalves")
+    (manual
+     (en "http://srfi.schemers.org/srfi-18/srfi-18.html")
+     (else "http://srfi.schemers.org/srfi-18/srfi-18.html"))
     (maintainers "Seth Alves <seth@hungry.com>")
     (authors "Seth Alves <seth@hungry.com>")
     (description "Multithreading support")

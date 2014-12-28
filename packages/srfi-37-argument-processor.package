@@ -5,6 +5,9 @@
   (path "srfi/37.sld")
   (version "1.0")
   (homepage "http://srfi.schemers.org/srfi-37/srfi-37.html")
+  (manual
+   (en "http://srfi.schemers.org/srfi-37/srfi-37.html")
+   (else "http://srfi.schemers.org/srfi-37/srfi-37.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Anthony Carrico")
   (description "args-fold: a program argument processor")

@@ -5,6 +5,9 @@
   (path "srfi/13.sld")
   (version "1.0")
   (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-13/srfi-13.html")
+   (else "http://srfi.schemers.org/srfi-13/srfi-13.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors)
   (description "srfi-13-strings")

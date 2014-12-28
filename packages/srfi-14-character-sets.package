@@ -4,6 +4,9 @@
   (path "srfi/14.sld")
   (version "1.0")
   (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-14/srfi-14.html")
+   (else "http://srfi.schemers.org/srfi-14/srfi-14.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Seth Alves <seth@hungry.com>")
   (description "srfi-14-character-sets")

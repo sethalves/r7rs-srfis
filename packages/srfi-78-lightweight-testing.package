@@ -5,6 +5,9 @@
   (path "srfi/78.sld")
   (version "1.0")
   (homepage "http://srfi.schemers.org/srfi-78/srfi-78.html")
+  (manual
+   (en "http://srfi.schemers.org/srfi-78/srfi-78.html")
+   (else "http://srfi.schemers.org/srfi-78/srfi-78.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Sebastian Egner")
   (description "Lightweight testing")

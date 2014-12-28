@@ -31,18 +31,10 @@
           *shut-rd* *shut-wr* *shut-rdwr*)
 
   (import (scheme base)
-          ;; (srfi 8) ;; XXX why isn't kawa's srfi-8 working, here?
+          (srfi 8)
           (srfi-ancillary 106 constants))
 
   (begin
-
-    ;; XXX why isn't kawa's srfi-8 working, here?
-    (define-syntax receive
-      (syntax-rules ()
-        ((receive formals expression body ...)
-         (call-with-values (lambda () expression)
-           (lambda formals body ...)))))
-
 
     ;; http://docs.oracle.com/javase/6/docs/api/java/net/InetAddress.html
     ;; http://www.tutorialspoint.com/java/java_networking.htm

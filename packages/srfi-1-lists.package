@@ -5,6 +5,9 @@
   (path "srfi/1.sld")
   (version "1.0")
   (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-1/srfi-1.html")
+   (else "http://srfi.schemers.org/srfi-1/srfi-1.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Alex Shinn")
   (description "srfi-1-lists")

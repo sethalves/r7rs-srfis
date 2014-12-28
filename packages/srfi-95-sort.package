@@ -4,9 +4,10 @@
  (library
   (path "srfi/95.sld")
   (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-95/srfi-95.html"
-   "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-95/srfi-95.html")
+   (else "http://srfi.schemers.org/srfi-95/srfi-95.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Aubrey Jaffer" "Richard A. O'Keefe" "D.H.D. Warren")
   (description "Sorting and Merging")

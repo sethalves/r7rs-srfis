@@ -5,6 +5,9 @@
   (path "srfi/60.sld")
   (version "1.0")
   (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-60/srfi-60.html")
+   (else "http://srfi.schemers.org/srfi-60/srfi-60.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Aubrey Jaffer")
   (description "Integers as Bits")

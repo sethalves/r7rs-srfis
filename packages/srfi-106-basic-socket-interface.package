@@ -72,9 +72,10 @@
 (library
   (path "srfi-ancillary/106/impl-kawa.sld")
   (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves")
+  (manual
+   (en "http://srfi.schemers.org/srfi-106/srfi-106.html")
+   (else "http://srfi.schemers.org/srfi-106/srfi-106.html"))
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Seth Alves <seth@hungry.com>")
   (description "High and middle range of socket interfaces.")
