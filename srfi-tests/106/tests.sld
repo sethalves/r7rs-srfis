@@ -8,6 +8,8 @@
 
   (begin
 
+    (check-reset!)
+
     (random-source-randomize! default-random-source)
 
     (define port-no (number->string (+ (random-integer 20000) 10000)))

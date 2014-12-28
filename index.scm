@@ -6,7 +6,7 @@
     (version "1.0")
     (url "srfi-78-lightweight-testing.tgz")
     (size 17408)
-    (checksum (md5 "6ce6a20f35cd4432e7ef65e8bb22ad5a"))
+    (checksum (md5 "8ce0e1ccd88d671a1595c7f807a3d0e6"))
     (library
       (name (srfi 78))
       (path "srfi/78.sld")
@@ -119,8 +119,8 @@
     (name ())
     (version "1.0")
     (url "srfi-106-basic-socket-interface.tgz")
-    (size 39424)
-    (checksum (md5 "108ca8a69161cac41e97f5abe72decea"))
+    (size 41984)
+    (checksum (md5 "36a29e4ec8ebaff4fe99da29c477fbef"))
     (library
       (name (srfi 106))
       (path "srfi/106.sld")
@@ -149,6 +149,7 @@
         (srfi-ancillary 106 constants)
         (srfi-ancillary 106 impl-chibi)
         (srfi-ancillary 106 impl-chicken)
+        (srfi-ancillary 106 impl-kawa)
         (srfi-ancillary 106 unimplemented))
       (use-for final))
     (library
@@ -204,7 +205,7 @@
       (depends (srfi-ancillary 106 constants))
       (use-for final))
     (library
-      (name (srfi-ancillary 106 unimplemented))
+      (name (srfi-ancillary 106 impl-kawa))
       (path "srfi-ancillary/106/impl-kawa.sld")
       (version "1.0")
       (homepage
@@ -225,14 +226,14 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "tests for srfi-106")
       (license bsd)
-      (depends (srfi 27) (srfi 106) (srfi 78) (srfi 18))
+      (depends (srfi 27) (srfi 106) (srfi 78))
       (use-for test)))
   (package
     (name ())
     (version "1.0")
     (url "srfi-18-multithreading.tgz")
     (size 33280)
-    (checksum (md5 "799f21fb635c0d0ebf23e6a2d559107e"))
+    (checksum (md5 "c88ed02120379d5c51737a062cd3bb1c"))
     (library
       (name (srfi 18))
       (path "srfi/18.sld")
@@ -383,7 +384,7 @@
     (version "1.0")
     (url "srfi-42-eager-comprehensions.tgz")
     (size 63488)
-    (checksum (md5 "db8a1d054a8aaa904bf94f95f60a05c4"))
+    (checksum (md5 "6906bef1af6e4933827ce911691ed126"))
     (library
       (name (srfi 42))
       (path "srfi/42.sld")

@@ -119,6 +119,8 @@
 
     (define (run-tests)
 
+      (check-reset!)
+
       (check (eq? (current-thread) (current-thread)) => #t)
       (check (thread? (current-thread)) => #t)
       (check (thread? 'foo) => #f) 
