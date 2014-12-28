@@ -2,11 +2,17 @@
   (export
    ;; Flag operations
    address-family
+   ;; address-family?
    address-info 
+   ;; address-info?
    socket-domain
+   ;; socket-domain?
    ip-protocol
+   ;; ip-protocol?
    message-type
+   ;; message-type?
    shutdown-method
+   ;; shutdown-method?
    socket-merge-flags
    socket-purge-flags    
 
@@ -177,6 +183,15 @@
           (shutdown-method names ...)))))
 
 
+    (define (flag? flag)
+      (or (address-family? flag)
+          (address-info? flag)
+          (socket-domain? flag)
+          (ip-protocol? flag)
+          (message-type? flag)
+          (shutdown-method? flag)))
+
+
     (define (socket-merge-flags . flags)
       (let loop ((flags flags)
                  (result '()))
@@ -185,6 +200,8 @@
                (loop (append (car flags) (cdr flags))
                      result))
               (else
+               (if (not (flag? (car flags)))
+                   (error "invalid flag" (car flags)))
                (loop (cdr flags)
                      (lset-adjoin eq? result (car flags)))))))
 
@@ -192,11 +209,14 @@
     (define (socket-purge-flags base-flags . flags)
       (let loop ((flags flags)
                  (result (socket-merge-flags base-flags)))
-        (cond ((null? flags) result)
+        (cond ((null? flags)
+               result)
               ((list? (car flags))
                (loop (append (car flags) (cdr flags))
                      result))
               (else
+               (if (not (flag? (car flags)))
+                   (error "invalid flag" (car flags)))
                (loop (cdr flags)
                      (lset-difference eq? result (list (car flags))))))))
     ))
