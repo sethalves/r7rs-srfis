@@ -4,15 +4,7 @@
           (scheme write)
           (srfi 27)
           (srfi 106)
-          (srfi 78)
-          )
-
-  (cond-expand
-   (gauche
-    (import (gauche threads)))
-   (else
-    (import (srfi 18))))
-
+          (srfi 78))
 
   (begin
 
@@ -20,37 +12,38 @@
 
     (define port-no (number->string (+ (random-integer 20000) 10000)))
 
-    ;; simple echo server
-    (define (echo-server-run)
+    (define (get-line-from-binary-port bin)
+      (let loop ((result '())
+                 (b (read-u8 bin)))
+        (cond
+         ((eof-object? b)
+          (if (null? result)
+              b
+              (utf8->string (apply bytevector (reverse result)))))
+         ((= b 10) ;; newline
+          (utf8->string (apply bytevector (reverse result))))
+         ((= b 13) ;; ignore carriage-return
+          (loop result (read-u8 bin)))
+         (else
+          (loop (cons b result) (read-u8 bin))))))
 
-      (define (get-line-from-binary-port bin)
-        (let loop ((result '())
-                   (b (read-u8 bin)))
-          (cond
-           ((eof-object? b)
-            (if (null? result)
-                b
-                (utf8->string (apply bytevector (reverse result)))))
-           ((= b 10) ;; newline
-            (utf8->string (apply bytevector (reverse result))))
-           ((= b 13) ;; ignore carriage-return
-            (loop result (read-u8 bin)))
-           (else
-            (loop (cons b result) (read-u8 bin))))))
 
-      (let ((echo-server-socket (make-server-socket port-no)))
+    (define (echo-test)
+      (let* ((echo-server-socket (make-server-socket port-no))
+             (client-socket (make-client-socket "localhost" port-no)))
         (call-with-socket
          (socket-accept echo-server-socket)
          (lambda (sock)
            (let ((in (socket-input-port sock))
                  (out (socket-output-port sock)))
-             (let lp2 ((r (get-line-from-binary-port in)))
-               (cond
-                ((eof-object? r) #t)
-                (else
-                 (write-bytevector (string->utf8 (string-append r "\r\n")) out)
-                 (flush-output-port out)
-                 (lp2 (get-line-from-binary-port in))))))))))
+             (socket-send client-socket (string->utf8 "hello\r\n"))
+             (let ((r (get-line-from-binary-port in)))
+               (write-bytevector (string->utf8 (string-append r "\r\n")) out)
+               (flush-output-port out)
+               (let ((result
+                      (socket-recv client-socket
+                                   (string-length "hello\r\n"))))
+                 (check (utf8->string result) => "hello\r\n"))))))))
 
 
     (define (run-tests)
@@ -59,31 +52,21 @@
 
       (check
        (message-type peek oob) =>
-       (socket-merge-flags (message-type oob)
-                           (message-type peek)))
-
-
-      (check
-       (message-type oob peek) =>
        (socket-merge-flags (message-type peek)
                            (message-type oob)))
 
+
       (check
        (message-type oob peek) =>
-       (socket-purge-flags
-        (message-type peek oob wait-all)
-        (message-type wait-all)))
+       (socket-merge-flags (message-type oob)
+                           (message-type peek)))
 
-      (let ((server-thread (make-thread echo-server-run)))
-        (thread-start! server-thread)
-        (thread-sleep! 1)
-        (let ((client-socket (make-client-socket "localhost" port-no)))
-          ;; simple echo client
-          (socket-send client-socket (string->utf8 "hello\r\n"))
-          (thread-sleep! 1) ;; bug in chibi requires this
-          (let ((result
-                 (utf8->string
-                  (socket-recv client-socket (string-length "hello\r\n")))))
-            (check result => "hello\r\n"))))
+      ;; (check
+      ;;  (socket-purge-flags
+      ;;   (message-type peek oob)
+      ;;   (message-type peek))  =>
+      ;;   (message-type oob))
 
-      (check-passed? 5))))
+      (echo-test)
+
+      (check-passed? 4))))
