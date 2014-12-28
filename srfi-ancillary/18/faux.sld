@@ -87,7 +87,7 @@
       (next thread-next thread-next-set!)
       (previous thread-previous thread-previous-set!)
       (state thread-state thread-state-set!)
-      (name thread-name thread-name-set!)
+      (name thread-name)
       (specific thread-specific thread-specific-set!)
       (end-result thread-end-result thread-end-result-set!)
       (end-exception thread-end-exception thread-end-exception-set!)
@@ -110,7 +110,7 @@
     (define-record-type <condition-variable>
       (new-condition-variable name blocked-threads specific)
       condition-variable?
-      (name condition-variable-name condition-variable-name-set!)
+      (name condition-variable-name)
       (blocked-threads condition-variable-blocked-threads
                        condition-variable-blocked-threads-set!)
       (specific condition-variable-specific condition-variable-specific-set!))
@@ -134,12 +134,12 @@
     (thread-previous-set! running-thread running-thread)
 
 
-    (define (trace->writable x)
-      (cond ((boolean? x) x)
-            ((thread? x) (thread-name x))
-            ((mutex? x) (mutex-name x))
-            ((condition-variable? x) (condition-variable-name x))
-            (else x)))
+    ;; (define (trace->writable x)
+    ;;   (cond ((boolean? x) x)
+    ;;         ((thread? x) (thread-name x))
+    ;;         ((mutex? x) (mutex-name x))
+    ;;         ((condition-variable? x) (condition-variable-name x))
+    ;;         (else x)))
 
 
     ;; (define-syntax trace
@@ -200,35 +200,35 @@
       thread)
 
 
-    (define (display-thread thread)
-      ;; (write thread)
-      (display " state=")
-      (write (thread-state thread))
-      (display " name=")
-      (write (thread-name thread))
-      (display " join=")
-      (write (thread-join-thread thread))
-      (display " sleep=")
-      (write (thread-sleep-until thread))
-      (display " result=")
-      (write (thread-end-result thread))
-      (display " exn=")
-      (write (thread-end-exception thread))
-      (newline))
+    ;; (define (display-thread thread)
+    ;;   ;; (write thread)
+    ;;   (display " state=")
+    ;;   (write (thread-state thread))
+    ;;   (display " name=")
+    ;;   (write (thread-name thread))
+    ;;   (display " join=")
+    ;;   (write (thread-join-thread thread))
+    ;;   (display " sleep=")
+    ;;   (write (thread-sleep-until thread))
+    ;;   (display " result=")
+    ;;   (write (thread-end-result thread))
+    ;;   (display " exn=")
+    ;;   (write (thread-end-exception thread))
+    ;;   (newline))
 
 
-    (define (display-threads label)
-      (display "--------------------------\n")
-      (display label)
-      (newline)
-      (display "--------------------------\n")
-      (display-thread running-thread)
-      (let loop ((thread (thread-next running-thread)))
-        (cond ((eq? thread running-thread) #t)
-              (else
-               (display-thread thread)
-               (loop (thread-next thread)))))
-      (newline))
+    ;; (define (display-threads label)
+    ;;   (display "--------------------------\n")
+    ;;   (display label)
+    ;;   (newline)
+    ;;   (display "--------------------------\n")
+    ;;   (display-thread running-thread)
+    ;;   (let loop ((thread (thread-next running-thread)))
+    ;;     (cond ((eq? thread running-thread) #t)
+    ;;           (else
+    ;;            (display-thread thread)
+    ;;            (loop (thread-next thread)))))
+    ;;   (newline))
 
 
     (define (make-thread-runnable thread)
@@ -361,7 +361,11 @@
        (() (make-mutex #f))
        ((name)
         (trace `(make-mutex ,name))
-        (new-mutex #f running-thread name #f))))
+        (let ((m (new-mutex #f running-thread name #f)))
+          (thread-mutexes-set!
+           running-thread
+           (cons m (thread-mutexes running-thread)))
+          m))))
 
 
     (define (mutex-state mutex)
