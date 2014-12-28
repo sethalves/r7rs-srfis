@@ -54,8 +54,7 @@
                                            socket-type/stream
                                            ip-proto/tcp ;; ip-proto/ip
                                            ;; ai/passive
-                                           )))
-            )
+                                           ))))
         (make-listener-socket addr-info 5)))
 
 
