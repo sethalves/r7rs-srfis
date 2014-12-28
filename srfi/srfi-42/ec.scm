@@ -705,17 +705,17 @@
      (error "illegal macro call") )))
 
 
-(define (dispatch-union d1 d2)
-  (lambda (args)
-    (let ((g1 (d1 args)) (g2 (d2 args)))
-      (if g1
-          (if g2 
-              (if (null? args)
-                  (append (if (list? g1) g1 (list g1)) 
-                          (if (list? g2) g2 (list g2)) )
-                  (error "dispatching conflict" args (d1 '()) (d2 '())) )
-              g1 )
-          (if g2 g2 #f) ))))
+;; (define (dispatch-union d1 d2)
+;;   (lambda (args)
+;;     (let ((g1 (d1 args)) (g2 (d2 args)))
+;;       (if g1
+;;           (if g2 
+;;               (if (null? args)
+;;                   (append (if (list? g1) g1 (list g1)) 
+;;                           (if (list? g2) g2 (list g2)) )
+;;                   (error "dispatching conflict" args (d1 '()) (d2 '())) )
+;;               g1 )
+;;           (if g2 g2 #f) ))))
 
 
 ; ==========================================================================
