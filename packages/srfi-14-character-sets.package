@@ -3,7 +3,7 @@
  (library
   (path "srfi/14.sld")
   (version "1.0")
-  (homepage "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (manual
    (en "http://srfi.schemers.org/srfi-14/srfi-14.html")
    (else "http://srfi.schemers.org/srfi-14/srfi-14.html"))
@@ -15,7 +15,7 @@
   (path "srfi-tests/14/tests.sld")
   (use-for test)
   (version "1.0")
-  (homepage "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Olin Shivers")
   (description "tests for srfi-14")

@@ -4,7 +4,7 @@
  (library
   (path "srfi/78.sld")
   (version "1.0")
-  (homepage "http://srfi.schemers.org/srfi-78/srfi-78.html")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (manual
    (en "http://srfi.schemers.org/srfi-78/srfi-78.html")
    (else "http://srfi.schemers.org/srfi-78/srfi-78.html"))
@@ -16,7 +16,7 @@
   (path "srfi-tests/78/tests.sld")
   (use-for test)
   (version "1.0")
-  (homepage "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Sebastian Egner")
   (description "78")

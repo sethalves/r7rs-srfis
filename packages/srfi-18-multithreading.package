@@ -4,7 +4,7 @@
   (library
     (path "srfi/18.sld")
     (version "1.0")
-    (homepage "https://github.com/sethalves")
+    (homepage "https://github.com/sethalves/r7rs-srfis")
     (manual
      (en "http://srfi.schemers.org/srfi-18/srfi-18.html")
      (else "http://srfi.schemers.org/srfi-18/srfi-18.html"))
@@ -15,7 +15,7 @@
   (library
     (path "srfi-ancillary/18/faux.sld")
     (version "1.0")
-    (homepage "https://github.com/sethalves")
+    (homepage "https://github.com/sethalves/r7rs-srfis")
     (maintainers "Seth Alves <seth@hungry.com>")
     (authors "Seth Alves <seth@hungry.com>")
     (description "Faux Multithreading support")
@@ -24,7 +24,7 @@
     (path "srfi-tests/18/tests.sld")
     (use-for test)
     (version "1.0")
-    (homepage "https://github.com/sethalves")
+    (homepage "https://github.com/sethalves/r7rs-srfis")
     (maintainers "Seth Alves <seth@hungry.com>")
     (authors "Seth Alves <seth@hungry.com>")
     (description "18")

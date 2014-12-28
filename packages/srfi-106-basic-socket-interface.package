@@ -5,74 +5,7 @@
  (library
   (path "srfi/106.sld")
   (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
- (library
-  (path "srfi-ancillary/106/interface.sld")
-  (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
- (library
-  (path "srfi-ancillary/106/constants.sld")
-  (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
- (library
-  (path "srfi-ancillary/106/unimplemented.sld")
-  (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
- (library
-  (path "srfi-ancillary/106/impl-chibi.sld")
-  (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
-
-(library
-  (path "srfi-ancillary/106/impl-chicken.sld")
-  (version "1.0")
-  (homepage
-   "http://srfi.schemers.org/srfi-106/srfi-106.html"
-   "https://github.com/sethalves")
-  (maintainers "Seth Alves <seth@hungry.com>")
-  (authors "Seth Alves <seth@hungry.com>")
-  (description "High and middle range of socket interfaces.")
-  (license bsd))
-
-(library
-  (path "srfi-ancillary/106/impl-kawa.sld")
-  (version "1.0")
-  (homepage "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (manual
    (en "http://srfi.schemers.org/srfi-106/srfi-106.html")
    (else "http://srfi.schemers.org/srfi-106/srfi-106.html"))
@@ -82,10 +15,65 @@
   (license bsd))
 
  (library
+  (path "srfi-ancillary/106/interface.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+ (library
+  (path "srfi-ancillary/106/constants.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+ (library
+  (path "srfi-ancillary/106/unimplemented.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+ (library
+  (path "srfi-ancillary/106/impl-chibi.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+
+(library
+  (path "srfi-ancillary/106/impl-chicken.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+(library
+  (path "srfi-ancillary/106/impl-kawa.sld")
+  (version "1.0")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
+  (maintainers "Seth Alves <seth@hungry.com>")
+  (authors "Seth Alves <seth@hungry.com>")
+  (description "High and middle range of socket interfaces.")
+  (license bsd))
+
+ (library
   (path "srfi-tests/106/tests.sld")
   (use-for test)
   (version "1.0")
-  (homepage "https://github.com/sethalves")
+  (homepage "https://github.com/sethalves/r7rs-srfis")
   (maintainers "Seth Alves <seth@hungry.com>")
   (authors "Seth Alves <seth@hungry.com>")
   (description "tests for srfi-106")
