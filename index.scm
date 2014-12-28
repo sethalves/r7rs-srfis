@@ -119,8 +119,8 @@
     (name ())
     (version "1.0")
     (url "srfi-106-basic-socket-interface.tgz")
-    (size 38912)
-    (checksum (md5 "a0f05b0c46b7e81bcee5d83a56b3f4d3"))
+    (size 39424)
+    (checksum (md5 "108ca8a69161cac41e97f5abe72decea"))
     (library
       (name (srfi 106))
       (path "srfi/106.sld")
@@ -132,10 +132,7 @@
       (authors "Seth Alves <seth@hungry.com>")
       (description "High and middle range of socket interfaces.")
       (license bsd)
-      (depends
-        (srfi 1)
-        (srfi-ancillary 106 constants)
-        (srfi-ancillary 106 interface))
+      (depends (srfi-ancillary 106 constants) (srfi-ancillary 106 interface))
       (use-for final))
     (library
       (name (srfi-ancillary 106 interface))
@@ -234,8 +231,8 @@
     (name ())
     (version "1.0")
     (url "srfi-18-multithreading.tgz")
-    (size 24064)
-    (checksum (md5 "f5e95e0ec3083c54e30f30d9eda33552"))
+    (size 33280)
+    (checksum (md5 "799f21fb635c0d0ebf23e6a2d559107e"))
     (library
       (name (srfi 18))
       (path "srfi/18.sld")
