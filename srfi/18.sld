@@ -37,5 +37,7 @@
           uncaught-exception-reason)
 
   (cond-expand
+   (kawa
+    (import (srfi-ancillary 18 kawa)))
    (else
     (import (srfi-ancillary 18 faux)))))

@@ -13,6 +13,14 @@
     (description "Multithreading support")
     (license bsd))
   (library
+    (path "srfi-ancillary/18/kawa.sld")
+    (version "1.0")
+    (homepage "https://github.com/sethalves/r7rs-srfis")
+    (maintainers "Seth Alves <seth@hungry.com>")
+    (authors "Seth Alves <seth@hungry.com>")
+    (description "Kawa Multithreading support")
+    (license bsd))
+  (library
     (path "srfi-ancillary/18/faux.sld")
     (version "1.0")
     (homepage "https://github.com/sethalves/r7rs-srfis")

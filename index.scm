@@ -83,7 +83,7 @@
       (authors)
       (description "srfi-13-strings")
       (license BSD-style)
-      (depends (srfi 14))
+      (depends (chibi optional) (srfi 14))
       (use-for final))
     (library
       (name (srfi-tests 13 tests))
@@ -242,8 +242,8 @@
     (name ())
     (version "1.0")
     (url "srfi-18-multithreading.tgz")
-    (size 33792)
-    (checksum (md5 "f4146c6978e5ad88bb484cbdc2913bbf"))
+    (size 47616)
+    (checksum (md5 "9d8db5b0bfb98cadf8e3ba3ad3440ebc"))
     (library
       (name (srfi 18))
       (path "srfi/18.sld")
@@ -257,6 +257,18 @@
       (description "Multithreading support")
       (license bsd)
       (depends (srfi-ancillary 18 faux))
+      (use-for final))
+    (library
+      (name (srfi-ancillary 18 faux))
+      (path "srfi-ancillary/18/kawa.sld")
+      (version "1.0")
+      (homepage "https://github.com/sethalves/r7rs-srfis")
+      (manual)
+      (maintainers "Seth Alves <seth@hungry.com>")
+      (authors "Seth Alves <seth@hungry.com>")
+      (description "Kawa Multithreading support")
+      (license bsd)
+      (depends)
       (use-for final))
     (library
       (name (srfi-ancillary 18 faux))
