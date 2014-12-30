@@ -6,7 +6,7 @@ all:
 
 package:
 	snow2 -r . package packages/*.package
-	ls *.tgz | while read I; do   gunzip "$$I";   gzip -9 $${I%%.*}.tar;   mv $${I%%.*}.tar.gz $${I%%.*}.tgz; done
+	ls *.tgz | while read I; do   gunzip "$$I";   gzip -n -9 $${I%%.*}.tar;   mv $${I%%.*}.tar.gz $${I%%.*}.tgz; done
 
 upload: package
 	snow2 upload
