@@ -134,7 +134,7 @@
     (version "1.0")
     (url "srfi-106-basic-socket-interface.tgz")
     (size 40960)
-    (checksum (md5 "55ccd89b4178018eab10acc589e12ef0"))
+    (checksum (md5 "7fdabb0681bcb2b33b42d07df3f1a041"))
     (library
       (name (srfi 106))
       (path "srfi/106.sld")
